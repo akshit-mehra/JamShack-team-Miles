@@ -7,7 +7,8 @@ const requestSchema = new mongoose.Schema({
     requester: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     date: { type: Date, default: Date.now },
     valid: {type: Boolean, required: true, default: true},
-    offeringAmount: { type: Number}
+    offeringAmount: { type: Number},
+    isRental: { type: Boolean,  required: true},
 });
 
 

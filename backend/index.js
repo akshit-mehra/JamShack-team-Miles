@@ -16,14 +16,16 @@ app.use(cors())
 
 const port =  3001;
 
-
+//  using mongoose@6.10.0 temporarily to fix error - https://stackoverflow.com/a/75638135
 // conencting to MongoDB
 connectDB();
-
-app.listen(port, function () {
-    console.log("listening on port " + port);
-});
 
 
 //   available routes
 app.use("/api/auth", require("./routes/auth"));
+app.use('/api/request', require("./routes/request"));
+
+
+app.listen(port, function () {
+    console.log("listening on port " + port);
+});
