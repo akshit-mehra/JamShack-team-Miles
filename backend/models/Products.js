@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
   availability: { type: Boolean, required: true, default: true },
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   category: { type: String}, // optional
-  isRental: { type: Boolean, default: false },
+  isRental: { type: Boolean,  required: true, default: false},
   imageURL: { type: String }
 });
 
