@@ -7,9 +7,10 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   availability: { type: Boolean, required: true, default: true },
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  category: { type: String}, // optional
+  isRental: { type: Boolean, default: false },
+  imageURL: { type: String }
 });
 
 
-const Product = mongoose.model("Product", productSchema);
-
-module.exports = Product;
+module.exports = mongoose.model("Product", productSchema);
