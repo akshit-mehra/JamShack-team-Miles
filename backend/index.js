@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors())
 
 
-const port =  5000;
+const port =  3001;
 
 
 // conencting to MongoDB
