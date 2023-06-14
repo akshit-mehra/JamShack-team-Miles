@@ -24,6 +24,7 @@ connectDB();
 //   available routes
 app.use("/api/auth", require("./routes/auth"));
 app.use('/api/request', require("./routes/request"));
+app.use('/api/listing', require("./routes/listing"));
 
 
 app.listen(port, function () {

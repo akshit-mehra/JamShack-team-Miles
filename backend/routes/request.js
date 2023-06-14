@@ -57,7 +57,7 @@ router.get("/getrequest", async (req, res) => {
     })
 });
 
-// Route-3 :: request fulfilled - POST - REQUIRES LOGIN
+// Route-3 :: request fulfilled - PUT - REQUIRES LOGIN
 router.put('/markrequest/:id', fetchuser , async (req, res) => {
 
     try{
