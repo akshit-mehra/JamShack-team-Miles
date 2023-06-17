@@ -25,6 +25,7 @@ connectDB();
 app.use("/api/auth", require("./routes/auth"));
 app.use('/api/request', require("./routes/request"));
 app.use('/api/listing', require("./routes/listing"));
+app.use('/api/chat', require("./routes/chat"));
 
 
 app.listen(port, function () {

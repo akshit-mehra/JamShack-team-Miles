@@ -42,7 +42,7 @@ router.post('/makerequest',
  });
 
 
-// ROUTE-2 :: get all request - Post - "/api/request/getrequest" - DOES NOT REQUIRES LOGIN
+// ROUTE-2 :: get all request - GET - "/api/request/getrequest" - DOES NOT REQUIRES LOGIN
 router.get("/getrequest", async (req, res) => {
     Requests.find({}, async (err, requests) => {
         if(err)
