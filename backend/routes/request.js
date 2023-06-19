@@ -27,7 +27,8 @@ router.post('/makerequest',
             title: req.body.title,
             description: req.body.description,
             offeringAmount: req.body.offeringAmount,
-            isRental: req.body.isRental
+            isRental: req.body.isRental,
+            category: req.body.category,
         });
 
         newRequest.save((err, request) => {
