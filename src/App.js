@@ -1,6 +1,10 @@
 import './App.css';
-import ChatComp from './components/ChatComp'
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
+import Login from './components/Login/Login';
+import ChatComp from './components/Chat/ChatComp';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AppState from './context/AppState';
+
 
 
 function App() {
