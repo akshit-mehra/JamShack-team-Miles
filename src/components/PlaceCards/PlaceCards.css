@@ -1,5 +1,6 @@
 .pl-h{
-    height: 300px;
+    min-height: 300px;
+    height: fit-content;
     flex-wrap: wrap;
 }
 .pl-title{

@@ -1,0 +1,12 @@
+.reqall{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: fit-content;
+}
+.req-ah{
+    margin-bottom: 20px;
+}
+.req-area{
+    margin-bottom: 30px;
+}
