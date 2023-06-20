@@ -8,7 +8,6 @@ import Sell from "../components/Sell/Sell";
 const Home = () => {
   return (
     <div className="home">
-      <Navbar />
       <SearchBar />
       <Sell/>
       <Footer />

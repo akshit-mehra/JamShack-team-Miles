@@ -9,4 +9,6 @@
 }
 .req-area{
     margin-bottom: 30px;
+    min-height:45vh;
+    height: fit-content;
 }

@@ -16,7 +16,7 @@ function App() {
     <div className="Main">
        <AppState>
         <Router>
-         {/* <Navbar/> */}
+         <Navbar/>
         <Routes>
         {/* <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} /> */}
         <Route path="/" element={<Home/>} />
