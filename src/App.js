@@ -1,5 +1,5 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 import SearchBar from './components/SearchBar';
 import Home from './pages/Home';
 import Login from './components/Login/Login';
@@ -15,9 +15,10 @@ function App() {
     <div className="Main">
        <AppState>
         <Router>
-         <Navbar/>
+         {/* <Navbar/> */}
         <Routes>
-        <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} />
+        {/* <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} /> */}
+        <Route path="/" element={<Home/>} />
           <Route path="login" element={<Login/>} />
         </Routes>
           {/* <Footer /> */}

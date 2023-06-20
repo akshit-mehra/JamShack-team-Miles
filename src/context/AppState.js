@@ -8,6 +8,7 @@ const AppState = (props) => {
   const InitialRequests = [];
 
   const [requests, setrequests] = useState(InitialRequests)
+  const [listing, setlisting] = useState(InitialRequests)
 
     const startChat = async (productId) => {
         // API call to start a chat
@@ -81,6 +82,19 @@ const AppState = (props) => {
       const json = await response.json();
       setrequests(json);
     }
+     // function to get all listing from the database
+     const getAllList = async () => {
+      // API CAll
+      const response = await fetch(`${host}/api/listing/getlistings`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const json = await response.json();
+      setlisting(json);
+    }
 
     // function to mark a request as fulfilled
     const markRequest = async (id) => {
@@ -100,11 +114,14 @@ const AppState = (props) => {
   return (
     <appContext.Provider
       value={{
+        requests,
+        listing,
         startChat,
         getbuyers,
         addRequest,
         getAllRequests,
-        markRequest
+        markRequest,
+        getAllList
       }}
     >
       {props.children}

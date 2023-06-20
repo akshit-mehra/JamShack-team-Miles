@@ -1,6 +1,6 @@
 .c-body{
-    height: 207px;
-    width: 200px;
+    height: fit-content;
+    width: fit-content;
     border: 1px solid #00000042;
     border-radius: 5px;
     margin-left: 80px;
