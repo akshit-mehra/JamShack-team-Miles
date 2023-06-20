@@ -20,14 +20,14 @@ async(req, res) => {
         }
         else
         {
-            return res.json(request);
+            return res.json(result);
         }
     });
 })
 
 
 // ROUTE-2 :: get all interests for this product - GET
-router.get("/getinterest/:id", async (req, res) => {
+router.get("/getbuyers/:id", async (req, res) => {
     Interests.find({Productid : req.params.id}, async (err, result) => {
         if(err)
         {

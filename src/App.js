@@ -1,17 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
-import ChatComp from './components/ChatComp'
 import Navbar from './components/Navbar';
 import SearchBar from './components/SearchBar';
 import Home from './pages/Home';
+import Login from './components/Login/Login';
+import ChatComp from './components/Chat/ChatComp';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AppState from './context/AppState';
+
+
+
 
 function App() {
   return (
     <div className="Main">
-      {/* <ChatComp productId={"car"} convId={"buyerId"}/> */}
-      {/* <Navbar/>
-      <SearchBar/> */}
-      <Home/>
+       <AppState>
+        <Router>
+         <Navbar/>
+        <Routes>
+        <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} />
+          <Route path="login" element={<Login/>} />
+        </Routes>
+          {/* <Footer /> */}
+        </Router>
+      </AppState>
     </div>
   );
 }

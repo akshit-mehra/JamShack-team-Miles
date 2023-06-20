@@ -1,6 +1,5 @@
-
 import React, { useRef, useState } from 'react';
-// import './ChatComp.css'
+import './ChatComp.css'
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';

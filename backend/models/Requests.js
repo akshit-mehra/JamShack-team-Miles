@@ -8,6 +8,7 @@ const requestSchema = new mongoose.Schema({
     date: { type: Date, default: Date.now },
     valid: {type: Boolean, required: true, default: true},
     offeringAmount: { type: Number},
+    category: { type: String}, // optional
     isRental: { type: Boolean,  required: true},
 });
 
