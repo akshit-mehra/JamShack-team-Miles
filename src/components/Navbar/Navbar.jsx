@@ -1,7 +1,9 @@
 import React ,{useState}from "react";
 import "./Navbar.css";
+import {useNavigate} from "react-router-dom";
 
 const Navbar = () => {
+  const navigate=useNavigate();
   const [check_1, setcheck_1] = useState(true);
   const [check_2, setcheck_2] = useState(false);
   const [check_3, setcheck_3] = useState(false);
@@ -13,6 +15,7 @@ const Navbar = () => {
       setcheck_2(false);
       setcheck_3(false);
     }
+    navigate("/")
   }
   const active_nav_2=(e)=>{
   
@@ -21,6 +24,7 @@ const Navbar = () => {
       setcheck_1(false);
       setcheck_3(false);
     }
+    
   }
   const active_nav_3=(e)=>{
   
@@ -29,6 +33,8 @@ const Navbar = () => {
       setcheck_2(false);
       setcheck_1(false);
     }
+    navigate("/request");
+   
   }
 
   return (
