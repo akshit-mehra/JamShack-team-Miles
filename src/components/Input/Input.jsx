@@ -51,6 +51,9 @@ function Input() {
     Option1: "",
     Option2: "",
     Option3: "",
+    scategory: "",
+    isRental: "",
+    condition: "",
   });
 
   return (
@@ -98,13 +101,13 @@ function Input() {
 
           <div className="col-md-4">
             <div className="form-floating">
-              <select className="form-select" id="condition">
+              <select className="form-select" id="condition" name="condition"  onChange={handleChange}>
                 <option value="Bad">Bad</option>
                 <option value="Fair">Fair</option>
                 <option selected value="Good">
                   Good
                 </option>
-                <option value="Very Good">Very Good</option>
+                <option value="Very Good" >Very Good</option>
                 <option value="Excellent">Excellent</option>
               </select>
               <label htmlFor="condition">Condition of Product</label>
@@ -112,23 +115,25 @@ function Input() {
           </div>
           <div className="col-md-3">
             <div className="form-floating">
-              <select className="form-select" id="category">
+              <select className="form-select" id="scategory" name="scategory"  onChange={handleChange} >
                 <option selected value="Other">
                   Other
                 </option>
                 <option value="Books">Books</option>
                 <option value="Electronics">Electronics</option>
                 <option value="Automobiles">Automobiles</option>
+                <option value="Appliances">Appliances</option>
+                <option value="SportsEquipment" >Sports Eqipment</option>
                 <option value="Games">Games</option>
                 <option value="Furniture">Furniture</option>
               </select>
-              <label htmlFor="category">Select Category</label>
+              <label htmlFor="scategory">Select Category</label>
             </div>
           </div>
 
           <div className="col-md-2">
             <div className="form-floating">
-              <select className="form-select" id="isRental">
+              <select className="form-select" id="isRental" name="isRental"  onChange={handleChange}>
                 <option value="Sale">Sale</option>
                 <option value="Rent">Rent</option>
               </select>
