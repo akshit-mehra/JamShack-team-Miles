@@ -23,6 +23,7 @@ const Navbar = () => {
       setcheck_2(true);
       setcheck_1(false);
       setcheck_3(false);
+      navigate("/rent")
     }
     
   }

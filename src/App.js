@@ -7,6 +7,7 @@ import ChatComp from './components/Chat/ChatComp';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AppState from './context/AppState';
 import Request from './pages/Request';
+import Rent from './pages/Rent';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         {/* <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} /> */}
         <Route path="/" element={<Home/>} />
         <Route path='/request' element={<Request/>}/>
+        <Route path='/rent' element={<Rent/>}/>
           <Route path="login" element={<Login/>} />
         </Routes>
           {/* <Footer /> */}
