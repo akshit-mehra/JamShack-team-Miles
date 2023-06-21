@@ -82,20 +82,7 @@ const AppState = (props) => {
       const json = await response.json();
       setrequests(json);
     }
-     // function to get all listing from the database
-     const getAllList = async () => {
-      // API CAll
-      const response = await fetch(`${host}/api/listing/getlistings`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-
-      const json = await response.json();
-      setlisting(json);
-    }
-
+    
     // function to mark a request as fulfilled
     const markRequest = async (id) => {
         // API CALL
@@ -110,6 +97,20 @@ const AppState = (props) => {
         console.log(response);
     }
 
+     // function to get all listing from the database
+     const getAllList = async () => {
+      // API CAll
+      const response = await fetch(`${host}/api/listing/getlistings`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const json = await response.json();
+      setlisting(json);
+    }
+
 
   return (
     <appContext.Provider
@@ -121,7 +122,9 @@ const AppState = (props) => {
         addRequest,
         getAllRequests,
         markRequest,
-        getAllList
+        getAllList,
+        requests,
+        setrequests
       }}
     >
       {props.children}

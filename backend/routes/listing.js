@@ -79,6 +79,9 @@ router.post(
         category: req.body.category,
         isRental: req.body.isRental,
         imageURL: photoUrl.url,
+        condition: req.body.condition,
+        location: req.body.location,
+        otherDetails: req.body.otherDetails
       });
 
       newProduct.save((err, product) => {

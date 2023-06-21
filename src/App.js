@@ -9,6 +9,7 @@ import AppState from './context/AppState';
 import Request from './pages/Request';
 import Rent from './pages/Rent';
 
+import Input from './components/Input/Input';
 
 
 
@@ -24,6 +25,7 @@ function App() {
         <Route path='/request' element={<Request/>}/>
         <Route path='/rent' element={<Rent/>}/>
           <Route path="login" element={<Login/>} />
+          <Route path="/post" element={<Input/>} />
         </Routes>
           {/* <Footer /> */}
         </Router>

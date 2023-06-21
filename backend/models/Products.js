@@ -9,7 +9,10 @@ const productSchema = new mongoose.Schema({
   seller: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   category: { type: String}, // optional
   isRental: { type: Boolean,  required: true, default: false},
-  imageURL: { type: String }
+  imageURL: { type: String },
+  condition: { type: String },
+  location: { type: String },
+  otherDetails: { type: String }
 });
 
 
