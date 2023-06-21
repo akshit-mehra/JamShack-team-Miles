@@ -23,7 +23,19 @@ cloudinary.config({
 
 // ROUTE-1 :: get all listings - Post - "/api/listing/getlistings" - DOES NOT REQUIRES LOGIN
 router.get("/getlistings", async (req, res) => {
-  Products.find({}, async (err, listings) => {
+  Products.find({isRental:false}, async (err, listings) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
+    } else {
+      return res.json(listings);
+    }
+  });
+});
+
+// ROUTE-Rent :: get all rents- Post - "/api/listing/getrent" - DOES NOT REQUIRES LOGIN
+router.get("/getrent", async (req, res) => {
+  Products.find({isRental:true}, async (err, listings) => {
     if (err) {
       console.log(err);
       return res.status(500).send(err);
@@ -71,9 +83,9 @@ router.post(
       console.log("photo uploaded");
 
       const newProduct = new Products({
-        title: req.body.title,
+        title: req.body.inputTitle,
         description: req.body.description,
-        price: req.body.price,
+        price: req.body.inputPrice,
         availability: true,
         seller: req.user.id,
         category: req.body.category,

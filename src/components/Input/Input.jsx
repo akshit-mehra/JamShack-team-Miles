@@ -4,16 +4,17 @@ import { useState, useRef } from "react";
 
 function Input() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
-  const inputRef = useRef(null);
+  // const inputRef = useRef(null);
 
 
 //   UTHAYA HUA CODE
-  const handleUpload = () => {
-    inputRef.current?.click();
-  };
-  const handleDisplayFileDetails = () => {
-    inputRef.current?.files &&
-      setUploadedFileName(inputRef.current.files[0].name);
+  // const handleUpload = () => {
+  //   inputRef.current?.click();
+  // };
+  const handleDisplayFileDetails = (e) => {
+    // inputRef.current?.files &&
+    //   setUploadedFileName(inputRef.current.files[0].name);
+    setUploadedFileName(e.target.files[0]);
   };
 
 
@@ -24,8 +25,22 @@ function Input() {
     console.log(formVal);
   };
 
-  const submitAd = (e) => {
+  const submitAd = async(event) => {
+    event.preventDefault();
 
+    // Create a new FormData object
+    const formData = new FormData();
+    formData.append("image", uploadedFileName);
+    formData.append('json',JSON.stringify(formVal));
+
+    const response = await fetch('http://localhost:3001/api/listing/addlisting',{
+        method:'POST',
+        headers:{
+          "auth-token": localStorage.getItem("token"),
+        },
+        body:formData,
+      })
+      console.log(response);
   }
 
 
@@ -141,21 +156,22 @@ function Input() {
           </div>
           <div className="col-md-5">
             <div className="m-3">
-              <label className="mx-3">Choose file:</label>
+              <label className="mx-3">Upload Image:</label>
               <input
-                ref={inputRef}
+                // ref={inputRef}
+                accept="image/*"
                 onChange={handleDisplayFileDetails}
-                className="d-none"
+                // className="d-none"
                 type="file"
               />
-              <button
-                onClick={handleUpload}
+              {/* <button
+                // onClick={handleUpload}
                 className={`btn btn-outline-${
                   uploadedFileName ? "success" : "primary"
                 }`}
               >
                 {uploadedFileName ? uploadedFileName : "Upload"}
-              </button>
+              </button> */}
             </div>
           </div>
 

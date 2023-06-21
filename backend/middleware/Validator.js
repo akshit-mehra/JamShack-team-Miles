@@ -2,6 +2,7 @@ const express = require("express");
 const { body, validationResult,  } = require("express-validator");
 
 const Validator = (req, res, next) => {
+  console.log(req.body);
   const input = JSON.parse(req.body.json);
   req.body = input;
 

@@ -9,6 +9,7 @@ const AppState = (props) => {
 
   const [requests, setrequests] = useState(InitialRequests)
   const [listing, setlisting] = useState(InitialRequests)
+  const [rent, setrent] = useState(InitialRequests)
 
     const startChat = async (productId) => {
         // API call to start a chat
@@ -97,7 +98,7 @@ const AppState = (props) => {
         console.log(response);
     }
 
-     // function to get all listing from the database
+     // function to get all Sell listing from the database
      const getAllList = async () => {
       // API CAll
       const response = await fetch(`${host}/api/listing/getlistings`, {
@@ -106,9 +107,20 @@ const AppState = (props) => {
           "Content-Type": "application/json",
         },
       });
-
       const json = await response.json();
       setlisting(json);
+    }
+     // function to get all Sell listing from the database
+     const getAllRent = async () => {
+      // API CAll
+      const response = await fetch(`${host}/api/listing/getrent`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const json = await response.json();
+      setrent(json);
     }
 
 
@@ -124,7 +136,9 @@ const AppState = (props) => {
         markRequest,
         getAllList,
         requests,
-        setrequests
+        setrequests,
+        rent,
+        getAllRent 
       }}
     >
       {props.children}

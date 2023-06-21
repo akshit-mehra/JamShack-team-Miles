@@ -37,6 +37,12 @@ const Navbar = () => {
     navigate("/request");
    
   }
+  const POST=()=>{
+    navigate('/post');
+  }
+  const LOG=()=>{
+    navigate('/login');
+  }
 
   return (
     <div className="navb">
@@ -45,8 +51,8 @@ const Navbar = () => {
           <p>Khoj</p>
         </div>
         <div className="nav-btn">
-          <button id="signIn">Sign In</button>
-          <button id="nav-post">Post an ad</button>
+          <button id="signIn" onClick={LOG}>Sign In</button>
+          <button id="nav-post" onClick={POST}>Post an ad</button>
         </div>
       </div>
 
