@@ -7,7 +7,7 @@ import ChatComp from './components/Chat/ChatComp';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AppState from './context/AppState';
 import Request from './pages/Request';
-
+import Input from './components/Input/Input';
 
 
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path='/request' element={<Request/>}/>
           <Route path="login" element={<Login/>} />
+          <Route path="/post" element={<Input/>} />
         </Routes>
           {/* <Footer /> */}
         </Router>
