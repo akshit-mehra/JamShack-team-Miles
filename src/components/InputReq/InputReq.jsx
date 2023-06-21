@@ -2,9 +2,12 @@ import React from 'react'
 import { useState, useContext } from "react";
 import './InputReq.css'
 import appContext from '../../context/AppContext';
+import { useNavigate } from "react-router-dom";
+
 
 function InputReq() {
 
+  let navigate = useNavigate();
   const context = useContext(appContext);
 
   const { addRequest } = context;
@@ -19,13 +22,21 @@ function InputReq() {
     e.preventDefault();
     console.log("data submitted");
 
+    let  finalRental = true;
+    if(reqVal.isRental == "Sale")
+    {
+      finalRental = false;
+    }
+
     await addRequest(
       reqVal.inputTitle,
       reqVal.description,
       0,
-      reqVal.isRental,
+      finalRental,
       reqVal.scategory
     );
+
+    // navigate('/request');
   }
 
 
