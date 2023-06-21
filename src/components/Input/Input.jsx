@@ -36,7 +36,7 @@ function Input() {
     Option1: "",
     Option2: "",
     Option3: "",
-    category: "",
+    scategory: "",
     isRental: "",
     condition: "",
   });
@@ -100,7 +100,7 @@ function Input() {
           </div>
           <div className="col-md-3">
             <div className="form-floating">
-              <select className="form-select" id="category" name="category"  onChange={handleChange} >
+              <select className="form-select" id="scategory" name="scategory"  onChange={handleChange} >
                 <option selected value="Other">
                   Other
                 </option>
@@ -112,7 +112,7 @@ function Input() {
                 <option value="Games">Games</option>
                 <option value="Furniture">Furniture</option>
               </select>
-              <label htmlFor="category">Select Category</label>
+              <label htmlFor="scategory">Select Category</label>
             </div>
           </div>
 
