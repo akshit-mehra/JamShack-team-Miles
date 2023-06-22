@@ -6,10 +6,14 @@ const AppState = (props) => {
   const host = "http://localhost:3001";
 
   const InitialRequests = [];
+  const InitialListings = [];
+  const InitialRent = [];
+  const InitialOffers = [];
 
-  const [requests, setrequests] = useState(InitialRequests)
-  const [listing, setlisting] = useState(InitialRequests)
-  const [rent, setrent] = useState(InitialRequests)
+  const [requests, setrequests] = useState(InitialRequests);
+  const [listing, setlisting] = useState(InitialListings);
+  const [rent, setrent] = useState(InitialRent);
+  const [offers, setoffers] = useState(InitialOffers);
 
     const startChat = async (productId) => {
         // API call to start a chat
@@ -124,6 +128,39 @@ const AppState = (props) => {
     }
 
 
+    const makeoffer = async (productId, offerAmount,offerDescription , offerCondition, offerLocation) => {
+      // API call
+      const response = await fetch(`${host}/api/request/makeoffer/${productId}`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+  
+        body: JSON.stringify({ productId, offerAmount ,offerDescription , offerCondition, offerLocation}),
+      });
+  
+      console.log(response);
+  
+      // console.log("adding a new card");
+
+    };
+
+    const getalloffers = async (productId) => {
+      // API call
+      const response = await fetch(`${host}/api/request/getalloffers/${productId}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      });
+      const json = await response.json();
+      setoffers(json);
+    }
+
+    
+
   return (
     <appContext.Provider
       value={{
@@ -138,7 +175,9 @@ const AppState = (props) => {
         requests,
         setrequests,
         rent,
-        getAllRent 
+        getAllRent,
+        makeoffer,
+        getalloffers
       }}
     >
       {props.children}
