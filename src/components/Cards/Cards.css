@@ -1,14 +1,15 @@
 .c-body{
-    height: fit-content;
     width: fit-content;
     border: 1px solid #00000042;
     border-radius: 5px;
-    margin-left: 80px;
+    /* margin-left: 80px; */
     margin-top: 40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 10px;
+    min-height: 200px;
+    max-height: fit-content;
 }
 .c-body button{
     border: 1px solid #EC5539;
@@ -31,9 +32,18 @@
     padding: 0 6px;
 }
 .image{
-    height: fit-content;
-    width: fit-content;
+    min-width: 150px;
+    display: flex;
+    min-height: 100px;
+    /* width: 0px; */
+    /* height: -webkit-fill-available; */
+    height: -moz-fit-content;
+    /* height: fit-content; */
+    width: -moz-fit-content;
+    /* width: fit-content; */
     overflow: hidden;
+    max-width: fit-content;
+    max-height: fit-content;
 }
 .image img{
     width: 100%;

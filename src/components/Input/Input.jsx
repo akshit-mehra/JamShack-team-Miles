@@ -40,7 +40,6 @@ function Input() {
         },
         body:formData,
       })
-      console.log(response);
   }
 
 
@@ -51,9 +50,9 @@ function Input() {
     Option1: "",
     Option2: "",
     Option3: "",
-    scategory: "",
-    isRental: "",
-    condition: "",
+    scategory: "Other",
+    isRental: "Sale",
+    condition: "Good",
   });
 
   return (

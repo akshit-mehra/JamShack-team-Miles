@@ -1,6 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const H_req = () => {
+  const navigate=useNavigate();
+  const nav=()=>{
+    navigate('/postreq')
+  }
   return (
     <div
       style={{
@@ -19,6 +24,7 @@ const H_req = () => {
           className="h-btn"
           id="nav-post"
           style={{ width: "fit-content", height: "28px" ,marginLeft:'20px'}}
+          onClick={nav}
         >
           Post a request
         </button>

@@ -6,6 +6,7 @@ const Validator = (req, res, next) => {
   const input = JSON.parse(req.body.json);
   req.body = input;
 
+
   body("title", "enter a valid title").not().isEmpty();
   body("description", "description must be atleast 4 characters").isLength(
     {

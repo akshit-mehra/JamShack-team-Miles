@@ -2,9 +2,14 @@
     min-height: 300px;
     height: fit-content;
     flex-wrap: wrap;
+    margin: 0 10px;
 }
 .pl-title{
     margin-top:30px;
     margin-bottom: 5px;
     margin-left: 80px;
+}
+.c-data{
+    display: flex;
+    justify-content: center;
 }

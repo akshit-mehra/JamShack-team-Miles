@@ -1,14 +1,12 @@
 import React, { useContext, useEffect } from "react";
-import "./PlaceCards.css";
 import appContext from "../../context/AppContext";
 import Cards from "../Cards/Cards";
 
-const PlaceCards = () => {
-  const context = useContext(appContext);
-  const { listing,  getAllList } = context;
-
+const RentCard = () => {
+    const context = useContext(appContext);
+  const { rent,  getAllRent } = context;
   useEffect(() => {
-    getAllList();
+    getAllRent();
   }, []);
 
   return (
@@ -16,8 +14,8 @@ const PlaceCards = () => {
         <div className="pl-title cat-h">
             Recetly Added
         </div>
-      <div className="pl-h d-flex justify-content-around">
-        {listing.map((res) => {
+        <div className="pl-h d-flex justify-content-equal">
+        {rent.map((res) => {
           return (
             <div className="c-data">
               <Cards
@@ -32,7 +30,7 @@ const PlaceCards = () => {
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PlaceCards;
+export default RentCard

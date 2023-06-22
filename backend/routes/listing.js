@@ -81,6 +81,8 @@ router.post(
       const photoUrl = await cloudinary.uploader.upload(f);
 
       console.log("photo uploaded");
+      const otherDetails=req.body.Option1+' '+req.body.Option3+' '+req.body.Option3;
+     const bool=req.body.isRental[0]==='R' ?true : false; 
 
       const newProduct = new Products({
         title: req.body.inputTitle,
@@ -89,11 +91,11 @@ router.post(
         availability: true,
         seller: req.user.id,
         category: req.body.category,
-        isRental: req.body.isRental,
+        isRental: bool,
         imageURL: photoUrl.url,
         condition: req.body.condition,
         location: req.body.location,
-        otherDetails: req.body.otherDetails
+        otherDetails: otherDetails
       });
 
       newProduct.save((err, product) => {

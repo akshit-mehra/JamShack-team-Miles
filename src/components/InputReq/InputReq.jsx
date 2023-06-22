@@ -36,7 +36,7 @@ function InputReq() {
       reqVal.scategory
     );
 
-    // navigate('/request');
+    navigate('/request');
   }
 
 
