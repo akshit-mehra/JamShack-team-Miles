@@ -18,6 +18,7 @@ const PlaceCards = () => {
         </div>
       <div className="pl-h d-flex justify-content-around">
         {listing.map((res) => {
+         
           return (
             <div className="c-data">
               <Cards
