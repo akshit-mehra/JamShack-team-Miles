@@ -12,7 +12,7 @@ const productSchema = new mongoose.Schema({
   imageURL: { type: String },
   condition: { type: String },
   location: { type: String },
-  otherDetails: { type: String }
+  otherDetails: [{ type: String }]
 });
 
 

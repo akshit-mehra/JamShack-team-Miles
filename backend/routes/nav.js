@@ -42,7 +42,7 @@ router.post('/req',async(req,res)=>{
 })
 //ROute-4  for category searching
 router.post('/cat',async(req,res)=>{
-    Products.find({category:req.body.category,isRental:true},async(err,data)=>{
+    Products.find({category:req.body.category,isRental:false},async(err,data)=>{
         if(err){
             console.log(err);
             return res.status(500).send(err);

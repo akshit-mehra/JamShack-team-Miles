@@ -122,7 +122,7 @@ function Input() {
                 <option value="Electronics">Electronics</option>
                 <option value="Automobiles">Automobiles</option>
                 <option value="Appliances">Appliances</option>
-                <option value="SportsEquipment" >Sports Eqipment</option>
+                <option value="SportsEquipment" >Sports Equipment</option>
                 <option value="Games">Games</option>
                 <option value="Furniture">Furniture</option>
               </select>

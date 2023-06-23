@@ -17,6 +17,9 @@ const AppState = (props) => {
   const [rent, setrent] = useState(InitialRent);
   const [offers, setoffers] = useState(InitialOffers);
 
+
+  // Category
+  const [category, setcategory] = useState("");
   // navbar
   const [check_1, setcheck_1] = useState(true);
   const [check_2, setcheck_2] = useState(false);
@@ -237,6 +240,8 @@ const AppState = (props) => {
         active_nav_1,
         active_nav_2,
         active_nav_3,
+        category,
+        setcategory
       }}
     >
       {props.children}

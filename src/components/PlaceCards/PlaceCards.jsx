@@ -5,7 +5,7 @@ import Cards from "../Cards/Cards";
 
 const PlaceCards = () => {
   const context = useContext(appContext);
-  const { listing,  getAllList } = context;
+  const { listing, getAllList } = context;
 
   useEffect(() => {
     getAllList();
@@ -13,15 +13,13 @@ const PlaceCards = () => {
 
   return (
     <div>
-        <div className="pl-title cat-h">
-            Recetly Added
-        </div>
+      <div className="pl-title cat-h">Recetly Added</div>
       <div className="pl-h d-flex justify-content-around">
         {listing.map((res) => {
-         
           return (
             <div className="c-data">
               <Cards
+                id={res._id}
                 key={res._id}
                 imageURL={res.imageURL}
                 category={res.category}
