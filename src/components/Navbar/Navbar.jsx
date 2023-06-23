@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import appContext from "../../context/AppContext";
 import { useContext } from "react";
 import userImg from "../../images/Vector (3).png";
@@ -79,7 +79,7 @@ const Navbar = () => {
           ) : (
             
             <div className="d-flex">
-              <img src={userImg} alt="" style={{ margin: "0 10px" }} />
+              <Link to={'/profile'}><img src={userImg} alt="" style={{ margin: "0 10px" }} /></Link>
               <button id="signIn" onClick={handleLogout}>Sign Out</button>
             </div>
           )}
