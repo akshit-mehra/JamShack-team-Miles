@@ -62,7 +62,7 @@ const Navbar = () => {
     navigate("/login");
   };
   const home=()=>{
-    navigate("/");
+    active_nav_1();
   }
 
   return (

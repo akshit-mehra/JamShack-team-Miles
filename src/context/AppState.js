@@ -17,7 +17,6 @@ const AppState = (props) => {
   const [rent, setrent] = useState(InitialRent);
   const [offers, setoffers] = useState(InitialOffers);
 
-
   // Category
   const [category, setcategory] = useState("");
   // navbar
@@ -217,31 +216,27 @@ const AppState = (props) => {
     setoffers(json);
   };
 
-  const  acceptoffer = async (offerId) => {
-    const response = await fetch(`${host}/api/request/acceptoffer/${offerId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "auth-token": localStorage.getItem("token"),
-          },
-        }
-    );
+  const acceptoffer = async (offerId) => {
+    const response = await fetch(`${host}/api/request/acceptoffer/${offerId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
 
     const json = await response.json();
     console.log(json);
   };
 
-  const rejectoffer= async (offerId) => {
-    const response = await fetch(`${host}/api/request/rejectoffer/${offerId}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            "auth-token": localStorage.getItem("token"),
-          },
-        }
-    );
+  const rejectoffer = async (offerId) => {
+    const response = await fetch(`${host}/api/request/rejectoffer/${offerId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
 
     const json = await response.json();
     console.log(json);
@@ -269,11 +264,12 @@ const AppState = (props) => {
         check_1,
         check_2,
         check_3,
+
         active_nav_1,
         active_nav_2,
         active_nav_3,
         category,
-        setcategory
+        setcategory,
       }}
     >
       {props.children}

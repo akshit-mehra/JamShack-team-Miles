@@ -1,8 +1,8 @@
 import React from "react";
 import "./RequestCards.css";
 const RequestCards = (props) => {
-  const warr=props.description.split(' ');
-  const wshow=warr.splice(0,7).join(" ");
+  const warr = props.description.split(" ");
+  const wshow = warr.splice(0, 7).join(" ");
   return (
     <div className="req-body">
       <div className="req-title">
@@ -12,9 +12,7 @@ const RequestCards = (props) => {
         <p>{props.category}</p>
       </div>
       <div className="req-des">
-        <p>
-         {wshow}
-        </p>
+        <p>{warr.length > 8 ? wshow + "..." : wshow}</p>
       </div>
       <button>Make an offer</button>
     </div>
