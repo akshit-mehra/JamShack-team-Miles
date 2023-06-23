@@ -13,10 +13,17 @@ import Input from './components/Input/Input';
 import InputReq from './components/InputReq/InputReq';
 import Sale_Details from './components/Sale_Details/Sale_Details';
 import Profile from './components/Profile/Profile';
+import Overlay from './components/Overlay/Overlay';
+import { useState } from 'react';
 
 
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOverlay = () => {
+    setIsOpen(!isOpen);
+  };
   return (
     <div className="Main">
        <Router>
@@ -24,7 +31,7 @@ function App() {
      
          <Navbar/>
         <Routes>
-        {/* <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} /> */}
+
         <Route path="/" element={<Home/>} />
         <Route path='/request' element={<Request/>}/>
         <Route path='/rent' element={<Rent/>}/>
@@ -33,6 +40,7 @@ function App() {
           <Route path="/postreq" element={<InputReq/>} />
           <Route path="/details" element={<Sale_Details/>} />
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/chat" element={<ChatComp productId={"car"} convId={"buyerId"} />}/>
         </Routes>
           {/* <Footer /> */}
       </AppState>

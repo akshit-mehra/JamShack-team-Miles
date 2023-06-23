@@ -1,6 +1,4 @@
 import React, { useRef, useState } from 'react';
-import './ChatComp.css'
-
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -8,6 +6,8 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+
+import './ChatComp.css'
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVsHQsx09KjgWIIN5ZIScquRHY484_EV0",
@@ -30,7 +30,7 @@ function ChatComp(props) {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
+    <div className="ChatApp">
       <header>
         <h1>Khoj Chat</h1>
         <SignOut />
@@ -53,7 +53,7 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <button className="sign-in chatbutton" onClick={signInWithGoogle}>Sign in with Google</button>
       <p>Do not violate the community guidelines or you will be banned for life!</p>
     </>
   )
@@ -62,7 +62,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out chatbutton" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -102,7 +102,7 @@ function  ChatRoom(props) {
   }
 
   return (<>
-    <main>
+    <main className="mainChat">
 
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
@@ -110,11 +110,11 @@ function  ChatRoom(props) {
 
     </main>
 
-    <form onSubmit={sendMessage}>
+    <form className="chatform" onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="type your message here" />
+      <input className="chatInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="type your message here" />
 
-      <button type="submit" disabled={!formValue}>✈</button>
+      <button type="submit" className="chatbutton" disabled={!formValue}>✈</button>
 
     </form>
   </>)
@@ -128,7 +128,7 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img id="profileimg" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
       <p>{text}</p>
     </div>
   </>)
