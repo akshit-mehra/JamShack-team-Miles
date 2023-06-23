@@ -217,6 +217,36 @@ const AppState = (props) => {
     setoffers(json);
   };
 
+  const  acceptoffer = async (offerId) => {
+    const response = await fetch(`${host}/api/request/acceptoffer/${offerId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+    );
+
+    const json = await response.json();
+    console.log(json);
+  };
+
+  const rejectoffer= async (offerId) => {
+    const response = await fetch(`${host}/api/request/rejectoffer/${offerId}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+    );
+
+    const json = await response.json();
+    console.log(json);
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -234,6 +264,8 @@ const AppState = (props) => {
         getAllRent,
         makeoffer,
         getalloffers,
+        acceptoffer,
+        rejectoffer,
         check_1,
         check_2,
         check_3,
