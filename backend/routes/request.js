@@ -125,11 +125,16 @@ router.get("/getalloffers/:id", fetchuser, async (req, res) => {
 
     try{
         let offers = await Offers.find({Productid: req.params.id});
+        // return res.json(offer);
         if(!offers){
             return res.status(404).send("Not Found");
         }
         else{
-            if(Requests.findById(req.params.id).requester.toString() !== req.user.id){
+            const specificreq = await Requests.findById(req.params.id);
+
+            const owner = specificreq.requester.toString();
+
+            if(owner != req.user.id){
                 return res.status(401).send("Not Allowed");
             }
             else
@@ -138,7 +143,7 @@ router.get("/getalloffers/:id", fetchuser, async (req, res) => {
             }
         }
     }
-    catch{
+    catch(err){
         console.error(err.message);
         res.status(500).send("Internal Server Error");
     }
@@ -148,17 +153,74 @@ router.get("/getalloffers/:id", fetchuser, async (req, res) => {
 // Route-6 :: accept offer - PUT - REQUIRES LOGIN
 router.put("/acceptoffer/:id", fetchuser, async (req, res) => {
     try {
+        // find the offer
+        let offer = await Offers.findById(req.params.id);
+        
+        let request = await Requests.findById(offer.Productid);
 
+        if (!offer) {
+            return res.status(404).send("Not Found");
+        } else {
+            // Allow change only if user owns this request
+            const specificreq = await Requests.findById(offer.Productid);
+
+            const owner = specificreq.requester.toString();
+            if (owner !== req.user.id) {
+                return res.status(401).send("Not Allowed");
+            } else {
+               
+                request = await Requests.findByIdAndUpdate(offer.Productid, {
+                    valid: false,
+                });
+
+                offer = await Offers.findByIdAndUpdate(req.params.id, {
+                    offerStatus: "Accepted",
+                });
+
+                return res.json(offer);
+            }
+        }
     }
-    catch{
-
+    catch(err){
+        console.error(err.message);
+        res.status(500).send("Internal Server Error");
     }
 });
 
 // Route-7 :: reject an offer - PUT - REQUIRES LOGIN
 router.put("/rejectoffer/:id", fetchuser, async (req, res) => {
-    
+    try {
+        // find the offer
+        let offer = await Offers.findById(req.params.id);
+        
+        let request = await Requests.findById(offer.Productid);
+
+        if (!offer) {
+            return res.status(404).send("Not Found");
+        } else {
+            // Allow change only if user owns this request
+            const specificreq = await Requests.findById(offer.Productid);
+
+            const owner = specificreq.requester.toString();
+            if (owner !== req.user.id) {
+                return res.status(401).send("Not Allowed");
+            } else {
+               
+               
+                offer = await Offers.findByIdAndUpdate(req.params.id, {
+                    offerStatus: "Rejected",
+                });
+
+                return res.json(offer);
+            }
+        }
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
 
 module.exports = router;
+
