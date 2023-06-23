@@ -1,42 +1,51 @@
 import React ,{useState}from "react";
 import "./Navbar.css";
 import {useNavigate} from "react-router-dom";
+import appContext from "../../context/AppContext";
+import { useContext } from "react";
 
 const Navbar = () => {
-  const navigate=useNavigate();
-  const [check_1, setcheck_1] = useState(true);
-  const [check_2, setcheck_2] = useState(false);
-  const [check_3, setcheck_3] = useState(false);
+  const context = useContext(appContext);
+  const {check_1,check_2,check_3,active_nav_1,active_nav_2,active_nav_3}=context;
 
-  const active_nav_1=(e)=>{
-   
-    if(check_1==false){
-      setcheck_1(true);
-      setcheck_2(false);
-      setcheck_3(false);
-    }
-    navigate("/")
-  }
-  const active_nav_2=(e)=>{
+
+  const navigate=useNavigate();
+
   
-    if(check_2==false){
-      setcheck_2(true);
-      setcheck_1(false);
-      setcheck_3(false);
-      navigate("/rent")
-    }
+
+  // const [check_1, setcheck_1] = useState(true);
+  // const [check_2, setcheck_2] = useState(false);
+  // const [check_3, setcheck_3] = useState(false);
+
+  // const active_nav_1=(e)=>{
+   
+  //   if(check_1==false){
+  //     setcheck_1(true);
+  //     setcheck_2(false);
+  //     setcheck_3(false);
+  //   }
+  //   navigate("/")
+  // }
+  // const active_nav_2=(e)=>{
+  
+  //   if(check_2==false){
+  //     setcheck_2(true);
+  //     setcheck_1(false);
+  //     setcheck_3(false);
+  //     navigate("/rent")
+  //   }
     
-  }
-  const active_nav_3=(e)=>{
+  // }
+  // const active_nav_3=(e)=>{
   
-    if(check_3==false){
-      setcheck_3(true);
-      setcheck_2(false);
-      setcheck_1(false);
-    }
-    navigate("/request");
+  //   if(check_3==false){
+  //     setcheck_3(true);
+  //     setcheck_2(false);
+  //     setcheck_1(false);
+  //   }
+  //   navigate("/request");
    
-  }
+  // }
   const POST=()=>{
     navigate('/post');
   }
@@ -90,5 +99,4 @@ const Navbar = () => {
     </div>
   );
 };
-
 export default Navbar;

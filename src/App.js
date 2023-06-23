@@ -17,8 +17,9 @@ import InputReq from './components/InputReq/InputReq';
 function App() {
   return (
     <div className="Main">
+       <Router>
        <AppState>
-        <Router>
+     
          <Navbar/>
         <Routes>
         {/* <Route path="/" element={<ChatComp productId={"car"} convId={"buyerId"}/>} /> */}
@@ -30,8 +31,8 @@ function App() {
           <Route path="/postreq" element={<InputReq/>} />
         </Routes>
           {/* <Footer /> */}
-        </Router>
       </AppState>
+      </Router>
     </div>
   );
 }
