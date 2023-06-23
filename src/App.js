@@ -13,7 +13,6 @@ import Input from './components/Input/Input';
 import InputReq from './components/InputReq/InputReq';
 import Sale_Details from './components/Sale_Details/Sale_Details';
 import Profile from './components/Profile/Profile';
-import Overlay from './components/Overlay/Overlay';
 import { useState } from 'react';
 
 
@@ -40,7 +39,7 @@ function App() {
           <Route path="/postreq" element={<InputReq/>} />
           <Route path="/details" element={<Sale_Details/>} />
           <Route path="/profile" element={<Profile/>}/>
-          <Route path="/chat" element={<ChatComp productId={"car"} convId={"buyerId"} />}/>
+          <Route path="/chat" element={<ChatComp productId={"bike"} convId={"buyerId"} />}/>
         </Routes>
           {/* <Footer /> */}
       </AppState>

@@ -16,7 +16,7 @@ export function Overlay({ isOpen, onClose }) {
                 onClick={onClose}
               />
             </div>
-            <ChatComp productId={"car"} convId={"buyerId"} />
+            <ChatComp productId={"bike"} convId={"buyerId"} />
           </div>
         </div>
       )}
