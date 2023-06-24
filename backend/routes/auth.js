@@ -151,6 +151,18 @@ fetchuser, async (req, res) => {
         console.log(err);
         return res.status(400).json({ errors: "error occoured" });
     }
-} )
+} );
+
+// ROUTE-4 //get all users details - GET - "/api/auth/getalluser " - DOES NOT REQUIRE LOGIN
+router.get('/getalluser', async (req, res) => {
+    try{
+        const user = await User.find().select("-password");
+        res.send(user);
+    }
+    catch(err){
+        console.log(err);
+        return res.status(400).json({ errors: "error occoured" });
+    }
+});
 
 module.exports = router;

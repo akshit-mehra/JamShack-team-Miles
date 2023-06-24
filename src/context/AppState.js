@@ -11,11 +11,13 @@ const AppState = (props) => {
   const InitialListings = [];
   const InitialRent = [];
   const InitialOffers = [];
+  const InitialUsers = [];
 
   const [requests, setrequests] = useState(InitialRequests);
   const [listing, setlisting] = useState(InitialListings);
   const [rent, setrent] = useState(InitialRent);
   const [offers, setoffers] = useState(InitialOffers);
+  const [users, setusers] = useState(InitialUsers);
 
   // Category
   const [category, setcategory] = useState("");
@@ -283,6 +285,19 @@ const AppState = (props) => {
     // navigate('/searchResults');
   };
 
+  const getAllUsers = async () => {
+    // API CAll
+    const response = await fetch(`${host}/api/auth/getalluser`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    setusers(json);
+    
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -314,6 +329,8 @@ const AppState = (props) => {
         searchCon,
         searchData,
         deactive_nav,
+        users,
+        getAllUsers
       }}
     >
       {props.children}
