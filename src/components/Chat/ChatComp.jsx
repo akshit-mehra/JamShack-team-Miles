@@ -30,9 +30,9 @@ function ChatComp(props) {
   const [user] = useAuthState(auth);
 
   return (
-    <div className="App">
+    <div className="ChatApp">
       <header>
-        <h1>Khoj Chat</h1>
+        <h1 >Chat</h1>
         <SignOut />
       </header>
 
@@ -53,8 +53,8 @@ function SignIn() {
 
   return (
     <>
-      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-      <p>Do not violate the community guidelines or you will be banned for life!</p>
+      <button className="sign-in chatbutton" onClick={signInWithGoogle}>Sign in with Google</button>
+      <p>Do not violate the community guidelines or you will recieve a  ban </p>
     </>
   )
 
@@ -62,7 +62,7 @@ function SignIn() {
 
 function SignOut() {
   return auth.currentUser && (
-    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+    <button className="sign-out chatbutton" onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
@@ -71,8 +71,8 @@ function  ChatRoom(props) {
   const dummy = useRef();
   const messagesRef = firestore.collection("messages");
   const query =  messagesRef.where('convId', '==' , props.convId);
-  const correctquerry = query.where('productId', '==', props.productId).limit(25);
-  const sortedQuery = correctquerry.orderBy('createdAt', 'asc');
+  const correctquerry = query.where('productId', '==', props.productId);
+  const sortedQuery = correctquerry.orderBy('createdAt', 'asc').limit(100);
 
 
   console.log(query);
@@ -102,7 +102,7 @@ function  ChatRoom(props) {
   }
 
   return (<>
-    <main>
+    <main className="mainChat">
 
       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
@@ -110,11 +110,11 @@ function  ChatRoom(props) {
 
     </main>
 
-    <form onSubmit={sendMessage}>
+    <form className="chatform" onSubmit={sendMessage}>
 
-      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="type your message here" />
+      <input className="chatInput" value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="type your message here" />
 
-      <button type="submit" disabled={!formValue}>✈</button>
+      <button type="submit" id="sub-button" className="chatbutton" disabled={!formValue}>✈</button>
 
     </form>
   </>)
@@ -128,7 +128,7 @@ function ChatMessage(props) {
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+      <img id="profileimg" src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
       <p>{text}</p>
     </div>
   </>)
