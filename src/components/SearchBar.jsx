@@ -20,11 +20,9 @@ const SearchBar = () => {
   //   searchCon(search);
   // }
   return (
-    <div className='searchBar'>
-       <FontAwesomeIcon icon={faSearch} id='s-icon' />
-        <input type="text" name="search" value={search} id="" placeholder='Search an Item' onChange={handlechange}/>
-        <Link to={'/searchResults'} state={search}><button id="Search-btn">Search</button></Link>
-    </div>
+    <>
+   
+    </>
   )
 }
 
