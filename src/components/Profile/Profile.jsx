@@ -33,7 +33,6 @@ function Profile() {
         const data = await response.json();
         data.date = data.date.substring(0, 10);
         setuserdata(data);
-        console.log(data);
     }
 
     useLayoutEffect(() => {
