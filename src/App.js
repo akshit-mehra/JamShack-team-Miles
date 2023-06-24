@@ -16,6 +16,9 @@ import Profile from './components/Profile/Profile';
 import Search from './pages/Search';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
+import Listing from './components/Profile/Listing';
+import Customers from './components/Profile/Customers';
+
 
 
 
@@ -42,6 +45,8 @@ function App() {
           <Route path="/details" element={<Sale_Details/>} />
           <Route path="/profile" element={<Profile/>}/>
           <Route path='/searchResults' element={<Search/>}/>
+          <Route path='listing' element={<Listing/>}/>
+          <Route path='customer' element={<Customers/>}/>
           <Route path="/chat" element={<ChatComp productId={"bike"} convId={"buyerId"} />}/>
         </Routes>
           {/* <Footer /> */}

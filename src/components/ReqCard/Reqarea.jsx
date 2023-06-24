@@ -9,7 +9,7 @@ const Reqarea = () => {
 
   useEffect(() => {
     getAllRequests();
-  });
+  },[]);
 
   return (
     <div className="req-area">

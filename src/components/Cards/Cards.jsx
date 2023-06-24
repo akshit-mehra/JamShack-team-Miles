@@ -19,8 +19,16 @@ const Cards = (props) => {
         <p id="c-price">₹{props.price}</p>
       </div>
       <div className="c-title">{props.title}</div>
-      <Link to={`/details`} state={props.id}>  <button>View more details</button> </Link>
-     
+      {props.bool && <Link to={`/customer`} state={props.id}>
+            <button>View potential customers</button>
+          </Link>}
+      {!props.bool && (
+        
+          <Link to={`/details`} state={props.id}>
+            <button>View more details</button>
+          </Link>
+      
+      )}
     </div>
   );
 };

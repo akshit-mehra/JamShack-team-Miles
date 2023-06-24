@@ -27,27 +27,36 @@ const AppState = (props) => {
   const [searchData, setsearchData] = useState([]);
 
   const active_nav_1 = (e) => {
-    if (check_1 == false) {
       setcheck_1(true);
       setcheck_2(false);
       setcheck_3(false);
-    }
+
+    console.log(check_1);
+    console.log(check_2);
+    console.log(check_3);
     navigate("/");
   };
   const active_nav_2 = (e) => {
-    if (check_2 == false) {
+   
       setcheck_2(true);
       setcheck_1(false);
       setcheck_3(false);
-      navigate("/rent");
-    }
+     
+   
+    // console.log(check_1);
+    // console.log(check_2);
+    // console.log(check_3);
+    navigate("/rent");
   };
   const active_nav_3 = (e) => {
-    if (check_3 == false) {
+  
       setcheck_3(true);
       setcheck_2(false);
       setcheck_1(false);
-    }
+   
+    // console.log(check_1);
+    // console.log(check_2);
+    // console.log(check_3);
     navigate("/request");
   };
 
@@ -254,10 +263,10 @@ const AppState = (props) => {
     if (check_1) {
       setoption("sale");
     }
-    if (check_2) {
+    else if (check_2) {
       setoption("rent");
     }
-    if (check_3) {
+    else if (check_3) {
       setoption("req");
     }
 
@@ -270,6 +279,7 @@ const AppState = (props) => {
     });
     const ans = await data.json();
     setsearchData({ ans });
+    console.log(ans);
     // navigate('/searchResults');
   };
 

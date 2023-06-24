@@ -21,7 +21,7 @@ const Search = () => {
 
   return (
     <div style={{height:'500px',display:'flex',justifyContent:'center',flexDirection:'column'}}>
-      <h1 style={{width:'fit-content',marginLeft:'50px',color:'#EC5539'}}> Results for : {searchData.ans && searchData.ans[0].title}</h1>
+      {/* <h1 style={{width:'fit-content',marginLeft:'50px',color:'#EC5539'}}> Results for : {searchData.ans && searchData.ans[0].title}</h1> */}
 
       <div className="pl-h d-flex justify-content-around">
         {searchData.ans && searchData.ans.map((res) => {

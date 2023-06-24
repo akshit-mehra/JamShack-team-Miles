@@ -27,7 +27,7 @@ app.use('/api/request', require("./routes/request"));
 app.use('/api/listing', require("./routes/listing"));
 app.use('/api/chat', require("./routes/chat"));
 app.use('/api/nav',require('./routes/nav.js'));
-
+app.use('/api/interest',require('./routes/interest.js'));
 app.listen(port, function () {
     console.log("listening on port " + port);
 });

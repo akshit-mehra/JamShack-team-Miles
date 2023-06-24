@@ -21,6 +21,18 @@ cloudinary.config({
   api_secret: process.env.api_secret,
 });
 
+
+router.post("/getListUser", async (req, res) => {
+  Products.find({seller:req.body.userInfo._id}, async (err, listings) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).send(err);
+    } else {
+      return res.json(listings);
+    }
+  });
+});
+
 // ROUTE-1 :: get all listings - Post - "/api/listing/getlistings" - DOES NOT REQUIRES LOGIN
 router.get("/getlistings", async (req, res) => {
   Products.find({isRental:false}, async (err, listings) => {
