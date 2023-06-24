@@ -19,6 +19,7 @@ const RentCard = () => {
           return (
             <div className="c-data">
               <Cards
+              id={res._id}
                 key={res._id}
                 imageURL={res.imageURL}
                 category={res.category}

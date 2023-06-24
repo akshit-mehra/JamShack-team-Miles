@@ -23,6 +23,8 @@ const AppState = (props) => {
   const [check_1, setcheck_1] = useState(true);
   const [check_2, setcheck_2] = useState(false);
   const [check_3, setcheck_3] = useState(false);
+  const [option, setoption] = useState("sale");
+  const [searchData, setsearchData] = useState([]);
 
   const active_nav_1 = (e) => {
     if (check_1 == false) {
@@ -47,6 +49,12 @@ const AppState = (props) => {
       setcheck_1(false);
     }
     navigate("/request");
+  };
+
+  const deactive_nav = () => {
+    setcheck_1(false);
+    setcheck_2(false);
+    setcheck_3(false);
   };
 
   const startChat = async (productId) => {
@@ -242,6 +250,29 @@ const AppState = (props) => {
     console.log(json);
   };
 
+  const searchCon = async (search) => {
+    if (check_1) {
+      setoption("sale");
+    }
+    if (check_2) {
+      setoption("rent");
+    }
+    if (check_3) {
+      setoption("req");
+    }
+
+    const data = await fetch(`${host}/api/nav/${option}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ search }),
+    });
+    const ans = await data.json();
+    setsearchData({ ans });
+    // navigate('/searchResults');
+  };
+
   return (
     <appContext.Provider
       value={{
@@ -270,6 +301,9 @@ const AppState = (props) => {
         active_nav_3,
         category,
         setcategory,
+        searchCon,
+        searchData,
+        deactive_nav,
       }}
     >
       {props.children}

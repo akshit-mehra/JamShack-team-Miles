@@ -9,6 +9,7 @@ body{
 
 .user-d{
     margin: 50px 60px;
+    margin-right: 0;
     display: inline-flex;
     align-items: center;
     gap: 17px;

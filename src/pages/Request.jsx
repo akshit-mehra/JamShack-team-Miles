@@ -19,7 +19,7 @@ const Request = () => {
         <SearchBar/>
        <Reqarea/>
        <H_req/>
-        <Footer/>
+        {/* <Footer/> */}
     </div>
   )
 }

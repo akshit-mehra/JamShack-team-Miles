@@ -19,7 +19,7 @@ const Rent = () => {
       {/* <Home_cat/> */}
       <RentCard/>
       <H_Post/>
-      <Footer/>   
+      {/* <Footer/>    */}
 
     </div>
   )

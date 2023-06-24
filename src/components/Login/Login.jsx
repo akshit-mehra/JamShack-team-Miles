@@ -1,8 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import './Login.css';
 import { useNavigate } from "react-router-dom";
+import appContext from '../../context/AppContext';
+import { useContext } from 'react';
 
 const Login = () => {
+  const context=useContext(appContext);
+  const {deactive_nav}=context;
+  useEffect(() => {
+      deactive_nav();
+  }, []);
 
     const host = "http://localhost:3001";
 

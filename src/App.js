@@ -13,6 +13,8 @@ import Input from './components/Input/Input';
 import InputReq from './components/InputReq/InputReq';
 import Sale_Details from './components/Sale_Details/Sale_Details';
 import Profile from './components/Profile/Profile';
+import Search from './pages/Search';
+import Footer from './components/Footer/Footer';
 
 
 
@@ -33,6 +35,7 @@ function App() {
           <Route path="/postreq" element={<InputReq/>} />
           <Route path="/details" element={<Sale_Details/>} />
           <Route path="/profile" element={<Profile/>}/>
+          <Route path='/searchResults' element={<Search/>}/>
         </Routes>
           {/* <Footer /> */}
       </AppState>

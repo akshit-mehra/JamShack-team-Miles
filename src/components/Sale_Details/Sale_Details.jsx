@@ -10,30 +10,23 @@ const Sale_Details = () => {
   const { getAllList, getAllRent, listing, rent, check_1, check_2 } = context;
   const [reqData, setreqData] = useState([]);
   const retrieveData = () => {
-    if (check_1 == true) {
-      listing.map((item) => {
-        if (item._id == data) {
-          setreqData(item);
-        }
-      });
-    } else {
-      rent.map((item) => {
-        if (item._id == data) {
-          setreqData(item);
-        }
-      });
-    }
+    listing.map((item) => {
+      if (item._id == data) {
+        setreqData(item);
+      }
+    });
+
+    rent.map((item) => {
+      if (item._id == data) {
+        setreqData(item);
+      }
+    });
   };
   useLayoutEffect(() => {
-    if (check_1 == true) {
-      getAllList();
-      retrieveData();
-    }
-    if (check_2 == true) {
-      getAllRent();
-      retrieveData();
-    }
-  }, [check_1, check_2]);
+    getAllList();
+    getAllRent();
+    retrieveData();
+  }, []);
 
   return (
     <div
@@ -69,21 +62,23 @@ const Sale_Details = () => {
               ₹{reqData.price}
             </p>
           </div>
-          <div>
-            <p
-              style={{
-                color: "#8F8F8F",
-                fontSize: "14px",
-                fontWeight: "300",
-                marginBottom: "30px",
-              }}
-            >
-              <span style={{ color: "black", fontWeight: "500" }}>
-                Condition :
-              </span>
-              {reqData.condition}
-            </p>
-          </div>
+          {reqData.condition && (
+            <div>
+              <p
+                style={{
+                  color: "#8F8F8F",
+                  fontSize: "14px",
+                  fontWeight: "300",
+                  marginBottom: "30px",
+                }}
+              >
+                <span style={{ color: "black", fontWeight: "500" }}>
+                  Condition :
+                </span>
+                {reqData.condition}
+              </p>
+            </div>
+          )}
           <div style={{ marginBottom: "7px" }}>
             <p style={{ color: "#8F8F8F", fontSize: "18px" }}>
               {reqData.description}
@@ -109,7 +104,9 @@ const Sale_Details = () => {
             </div>
           )}
           <div>
-            <button id="nav-post" style={{width:'190px'}}>Chat with the seller</button>
+            <button id="nav-post" style={{ width: "190px" }}>
+              Chat with the seller
+            </button>
           </div>
         </div>
       </div>

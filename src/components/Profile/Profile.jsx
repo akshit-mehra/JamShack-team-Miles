@@ -3,9 +3,17 @@ import './Profile.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import appContext from '../../context/AppContext';
+import { useContext } from 'react';
+
 
 
 function Profile() {
+    const context=useContext(appContext);
+    const {deactive_nav}=context;
+    useEffect(() => {
+        deactive_nav();
+    }, []);
 
 
     const [userdata, setuserdata] = useState([]);
@@ -55,7 +63,7 @@ function Profile() {
                 </div>
             </div>
 
-            <div class="row justify-content-around">
+            <div class="row justify-content-around" style={{width:'100vw'}}>
                 <div class="col-4">
                     <div className="column-heading">
                         <p>Personal Details</p>
