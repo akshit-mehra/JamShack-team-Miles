@@ -4,6 +4,7 @@ const Customers = () => {
   const prodID = useLocation().state;
   const [data, setdata] = useState([]);
   const [udata, setudata] = useState([]);
+  const nularr=[];
   const getData = async () => {
     const res = await fetch("http://localhost:3001/api/interest/getinterest", {
       method: "GET",
@@ -20,8 +21,8 @@ const Customers = () => {
     
       data.ans.map((item) => {
         if (item.Productid == prodID) {
-          {
-            setudata(item.offeredBy);
+          { nularr.push(item.offeredBy)
+            setudata({nularr});
           }
         }
       });
@@ -33,7 +34,7 @@ const Customers = () => {
         userData();
     }
    
-  }, [data.ans]);
+  }, [data]);
 
   return (
     <div>
@@ -43,8 +44,7 @@ const Customers = () => {
             return <div>{setudata(item.offeredBy)}</div>;
           }
         })} */}
-        {udata}
-        {console.log(data.ans)}
+        {udata.nularr}
        
     </div>
   );
