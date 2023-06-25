@@ -18,6 +18,7 @@ const RentCard = () => {
 
 
   const [search, setsearch] = useState("");
+  const [searchCat, setsearchCat] = useState("");
 
   const handlechange = (e) => {
     setsearch(e.target.value);
@@ -25,12 +26,31 @@ const RentCard = () => {
 
   }
 
+
+  const changeCategory = (e) => {
+    setsearchCat(e.target.value);
+  }
+
   return (
     <div>
       <div className='searchBar'>
         <FontAwesomeIcon icon={faSearch} id='s-icon' />
         <input type="text" name="search" value={search} id="" placeholder='Search an Item' onChange={handlechange} />
-        <Link to={'/searchResults'} state={search}><button id="Search-btn">Search</button></Link>
+        <div className="col-md-1" id="cat-selector">
+
+<select class="form-select" id="change-drop" aria-label="Default select example" onChange={changeCategory}>
+  <option value="Categories" selected>Categories</option>
+  <option value="Books">Books</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Automobiles">Automobiles</option>
+  <option value="Appliances">Appliances</option>
+  <option value="SportsEquipment" >Sports Eqipment</option>
+  <option value="Games">Games</option>
+  <option value="Furniture">Furniture</option>
+  <option value="Other">Other</option>
+</select>
+</div>
+
       </div>
 
       <div className="pl-title cat-h">
@@ -39,7 +59,7 @@ const RentCard = () => {
       <div className="pl-h d-flex justify-content-equal">
         {rent.map((res) => {
           {
-            if (res.title.toUpperCase().indexOf(search.toUpperCase()) > -1) {
+            if ((res.title.toUpperCase().indexOf(search.toUpperCase()) > -1) && (searchCat == "" || searchCat == "Categories" || res.category==searchCat)) {
               return (
                 <div className="c-data">
                   <Cards

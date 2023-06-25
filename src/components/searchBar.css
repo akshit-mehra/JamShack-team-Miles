@@ -11,6 +11,10 @@
     width: 78%;
     padding-left: 30px;
     color: #ec5539;
+    height: 38px;
+    border-right: none;
+    border-top-right-radius: 0px ;
+    border-bottom-right-radius: 0px ;
 }
 .searchBar input::placeholder{
     /* padding: 30px; */

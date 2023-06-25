@@ -1,6 +1,8 @@
 import React from "react";
 import "./Input.css";
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 function Input() {
   const [uploadedFileName, setUploadedFileName] = useState(null);
@@ -18,6 +20,8 @@ function Input() {
   };
 
 
+  let navigate = useNavigate();
+
 
 
   const handleChange = (e) => {
@@ -33,6 +37,8 @@ function Input() {
     formData.append("image", uploadedFileName);
     formData.append('json',JSON.stringify(formVal));
 
+   
+
     const response = await fetch('http://localhost:3001/api/listing/addlisting',{
         method:'POST',
         headers:{
@@ -40,6 +46,10 @@ function Input() {
         },
         body:formData,
       })
+
+    
+      navigate('/');
+    
   }
 
 
