@@ -98,7 +98,7 @@ function Profile() {
                             </Link>
                         </div>
                         <div className="details">
-                            <Link to="/history">
+                            <Link to="/history" state={userdata}>
                                 Listing History
                             </Link>
                         </div>

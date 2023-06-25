@@ -21,6 +21,7 @@ import Customers from './components/Profile/Customers';
 import Offerinput from './components/OfferInput/Offerinput';
 import Requests from './components/Profile/Requests';
 import Offers from './components/Profile/Offers';
+import History from './components/Profile/History';
 
 
 
@@ -53,6 +54,7 @@ function App() {
           <Route path="/offerinput" element={<Offerinput/>}/>
           <Route path='/requests' element={<Requests/>}></Route>
           <Route path="/offers" element={<Offers/>}/>
+          <Route path="/history" element={<History/>}/>
           <Route path="/chat" element={<ChatComp productId={"bike"} convId={"buyerId"} />}/>
         </Routes>
           {/* <Footer /> */}
