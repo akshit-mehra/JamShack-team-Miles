@@ -192,6 +192,7 @@ const AppState = (props) => {
 
   const makeoffer = async (
     productId,
+    offerTitle,
     offerAmount,
     offerDescription,
     offerCondition,
@@ -207,6 +208,7 @@ const AppState = (props) => {
 
       body: JSON.stringify({
         productId,
+        offerTitle,
         offerAmount,
         offerDescription,
         offerCondition,

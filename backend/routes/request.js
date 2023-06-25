@@ -98,6 +98,7 @@ router.post("/makeoffer/:id", fetchuser, async (req, res) => {
             const newOffer = new Offers({
                 Productid: req.params.id,
                 offeredBy: req.user.id,
+                offerTitle: req.body.offerTitle,
                 offerAmount: req.body.offerAmount,
                 offerDescription: req.body.offerDescription,
                 offerCondition: req.body.offerCondition,

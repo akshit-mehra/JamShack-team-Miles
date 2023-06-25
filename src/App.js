@@ -18,6 +18,7 @@ import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import Listing from './components/Profile/Listing';
 import Customers from './components/Profile/Customers';
+import Offerinput from './components/OfferInput/Offerinput';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/searchResults' element={<Search/>}/>
           <Route path='listing' element={<Listing/>}/>
           <Route path='customer' element={<Customers/>}/>
+          <Route path="/offerinput" element={<Offerinput/>}/>
           <Route path="/chat" element={<ChatComp productId={"bike"} convId={"buyerId"} />}/>
         </Routes>
           {/* <Footer /> */}

@@ -23,7 +23,7 @@ const Cards = (props) => {
   return (
     <div className="c-body">
       <div className="image">
-        <img src={props.imageURL} alt="" />
+        <img src={props.imageURL} alt="" /> 
       </div>
       <div className="c-about">
         <p id="category">{props.category}</p>
