@@ -7,7 +7,7 @@ const Sale_Details = () => {
   const data = useLocation().state;
   const context = useContext(appContext);
 
-  const { getAllList, getAllRent, listing, rent, check_1, check_2 } = context;
+  const { getAllList, getAllRent, listing, rent, check_1, check_2, startChat } = context;
   const [reqData, setreqData] = useState([]);
   const retrieveData = () => {
     listing.map((item) => {
@@ -24,17 +24,9 @@ const Sale_Details = () => {
   };
   const [subcheck, setsubcheck] = useState(false);
   const sendUser = async () => {
-    const res = await fetch("http://localhost:3001/api/interest/addinterest", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ Productid: reqData._id }),
-    });
-    const ans = await res.json();
-    setsubcheck(true);
+    const ans = await startChat(reqData._id);
     console.log(ans);
+    setsubcheck(true);
   };
 
   useLayoutEffect(() => {

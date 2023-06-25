@@ -19,6 +19,9 @@ const AppState = (props) => {
   const [rent, setrent] = useState(InitialRent);
   const [offers, setoffers] = useState(InitialOffers);
   const [users, setusers] = useState(InitialUsers);
+  const [data, setdata] = useState([]);
+  const [potentialCustomers, setpotentialCustomers] = useState([]);
+
 
   const [offerProps, setofferProps] = useState(InitialProps);
 
@@ -81,6 +84,8 @@ const AppState = (props) => {
       },
     });
 
+    const json = await response.json();
+    return json; 
     // TODO: code to send mail to seller
   };
 
@@ -93,8 +98,10 @@ const AppState = (props) => {
       },
     });
 
-    const json = await response.json();
-    return json;
+    const json = await response.json();    
+    setpotentialCustomers(json);
+
+    return json;      
   };
 
   // add a new request
@@ -303,7 +310,6 @@ const AppState = (props) => {
     setusers(json);
     
   };
-  const [data, setdata] = useState([]);
   const getData = async () => {
     const res = await fetch("http://localhost:3001/api/interest/getinterest", {
       method: "GET",
@@ -322,6 +328,9 @@ const AppState = (props) => {
         listing,
         startChat,
         getbuyers,
+        potentialCustomers,
+        setpotentialCustomers,
+
         addRequest,
         getAllRequests,
         markRequest,
@@ -338,7 +347,6 @@ const AppState = (props) => {
         check_1,
         check_2,
         check_3,
-
         active_nav_1,
         active_nav_2,
         active_nav_3,
