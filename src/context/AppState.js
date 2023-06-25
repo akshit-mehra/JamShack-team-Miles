@@ -330,6 +330,7 @@ const AppState = (props) => {
         setrequests,
         rent,
         getAllRent,
+        offers,
         makeoffer,
         getalloffers,
         acceptoffer,

@@ -93,7 +93,7 @@ function Profile() {
                             </Link>
                         </div>
                         <div className="details">
-                            <Link to="/requests">
+                            <Link to="/requests" state={userdata}>
                                 Requests
                             </Link>
                         </div>

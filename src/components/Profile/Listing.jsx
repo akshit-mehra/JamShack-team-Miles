@@ -1,8 +1,12 @@
 import React ,{useLayoutEffect,useState}from 'react'
 import { useLocation } from 'react-router-dom'
 import Cards from '../Cards/Cards'
+import appContext from '../../context/AppContext';
+import { useContext } from 'react';
 
 const Listing = () => {
+  const context=useContext(appContext);
+  const {deactive_nav}=context;
     const userInfo=useLocation().state;
     const [arr,setArr]=useState([]);
 
@@ -18,6 +22,8 @@ const Listing = () => {
     }
     useLayoutEffect(() => {
         data();
+        deactive_nav();
+
     }, [])
 
   return (

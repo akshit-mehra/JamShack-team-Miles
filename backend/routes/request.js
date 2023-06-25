@@ -6,6 +6,18 @@ const Transactions = require("../models/Transactions");
 const { body, validationResult } = require("express-validator");
 const Offers = require("../models/Offers");
 
+
+
+router.post("/getReqUser", async (req, res) => {
+    Requests.find({requester:req.body.userInfo._id}, async (err, listings) => {
+      if (err) {
+        console.log(err);
+        return res.status(500).send(err);
+      } else {
+        return res.json(listings);
+      }
+    });
+  });
 // ROUTE-1 :: make a request - Post - "/api/request/makerequest" - REQUIRES LOGIN
 router.post(
     "/makerequest",
