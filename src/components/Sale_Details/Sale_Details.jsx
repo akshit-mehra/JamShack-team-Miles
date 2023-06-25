@@ -2,12 +2,13 @@ import React, { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import appContext from "../../context/AppContext";
 import { useEffect, useContext } from "react";
+import "./SaleDetails.css";
 
 const Sale_Details = () => {
   const data = useLocation().state;
   const context = useContext(appContext);
 
-  const { getAllList, getAllRent, listing, rent, check_1, check_2, startChat } = context;
+  const { getAllList, getAllRent, listing, rent, check_1, check_2, startChat, MyId, getMyId } = context;
   const [reqData, setreqData] = useState([]);
   const retrieveData = () => {
     listing.map((item) => {
@@ -33,6 +34,7 @@ const Sale_Details = () => {
     getAllList();
     getAllRent();
     retrieveData();
+    getMyId();
   }, []);
 
   return (
@@ -134,6 +136,7 @@ const Sale_Details = () => {
                 id="nav-post"
                 style={{ width: "190px" }}
                 onClick={sendUser}
+                disabled={reqData.availability === false || reqData.seller === MyId}
               >
                 Connect with the seller
               </button>

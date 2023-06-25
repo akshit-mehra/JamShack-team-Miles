@@ -67,7 +67,7 @@ const Login = () => {
         {
             errormessage = json.errors;
         }
-        console.log(json);
+        
         alert("Error: " + errormessage);
      }
      else{
@@ -92,6 +92,7 @@ const Login = () => {
       });
 
       const json = await response.json();
+      console.log(json);
 
       if(json.hasOwnProperty("error") || json.hasOwnProperty("errors")){
         

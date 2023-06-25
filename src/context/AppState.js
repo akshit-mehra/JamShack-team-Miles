@@ -34,6 +34,8 @@ const AppState = (props) => {
   const [check_3, setcheck_3] = useState(false);
   const [option, setoption] = useState("sale");
   const [searchData, setsearchData] = useState([]);
+  const [MyId, setMyId] = useState("");
+
 
   const active_nav_1 = (e) => {
       setcheck_1(true);
@@ -322,6 +324,22 @@ const AppState = (props) => {
     setdata(ans);
   }; 
 
+  const getMyId = async () => {
+    // API CALL
+    const res = await fetch("http://localhost:3001/api/auth/getuser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      }
+    }
+    );
+
+    const data = await res.json();
+    setMyId(data._id);
+  };
+
+  
   return (
     <appContext.Provider
       value={{
@@ -363,8 +381,10 @@ const AppState = (props) => {
         setofferProps,
         offerProps,
         profileListId,
-        setprofileListId
+        setprofileListId,
 
+        MyId,
+        getMyId
       }}
     >
       {props.children}
