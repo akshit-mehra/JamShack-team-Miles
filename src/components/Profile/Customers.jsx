@@ -1,51 +1,40 @@
 import React, { useLayoutEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import appContext from "../../context/AppContext";
+import { useEffect, useContext } from "react";
+
 const Customers = () => {
-  const prodID = useLocation().state;
+  const prop = useLocation().state;
   const [data, setdata] = useState([]);
   const [udata, setudata] = useState([]);
-  const nularr=[];
-  const getData = async () => {
-    const res = await fetch("http://localhost:3001/api/interest/getinterest", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const context = useContext(appContext);
+  const { getAllUsers, users } = context;
+  const prodID = prop.props.id;
+  const[offeredBy,setOfferedBy]=useState(prop.data.ans);
+
+
+  const change = () => {
+    prop.data.ans.map((item) => {
+      if (item.Productid == prodID) {
+        setudata([item.offeredBy]);
+      }
     });
-    const ans = await res.json();
-    setdata({ ans });
-  };
-  // will complete by fetching use info by userid
+  }
 
-  const userData = () => {
-    
-      data.ans.map((item) => {
-        if (item.Productid == prodID) {
-          { nularr.push(item.offeredBy)
-            setudata({nularr});
-          }
-        }
-      });
-  };
-
-  useLayoutEffect(() => {
-    getData();
-    if(data.ans!=null){
-        userData();
-    }
-   
-  }, [data]);
+useEffect(() => {
+  getAllUsers();
+},[]);
 
   return (
     <div>
-      {/* {data.ans &&
-        data.ans.map((item) => {
+      {offeredBy &&
+        offeredBy.map((item) => {
           if (item.Productid == prodID) {
-            return <div>{setudata(item.offeredBy)}</div>;
+            {console.log(users)}
           }
-        })} */}
-        {udata.nularr}
-       
+        })}
+      {/* <button onClick={change}></button> */}
+      {console.log(prop)}
     </div>
   );
 };

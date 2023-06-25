@@ -297,6 +297,17 @@ const AppState = (props) => {
     setusers(json);
     
   };
+  const [data, setdata] = useState([]);
+  const getData = async () => {
+    const res = await fetch("http://localhost:3001/api/interest/getinterest", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+   const ans=await res.json();
+    setdata(ans);
+  }; 
 
   return (
     <appContext.Provider
@@ -330,7 +341,9 @@ const AppState = (props) => {
         searchData,
         deactive_nav,
         users,
-        getAllUsers
+        getAllUsers,
+        data,
+        getData,
       }}
     >
       {props.children}
