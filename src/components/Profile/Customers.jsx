@@ -11,29 +11,34 @@ const Customers = () => {
 
   const context = useContext(appContext);
 
-  const { getAllUsers, users, potentialCustomers } = context;
-  // const prodID = prop.props.id;
-  // const[offeredBy,setOfferedBy]=useState(prop.data.ans);
+ const { potentialCustomers,getbuyers,profileListId ,getAllUsers,users} = context;
+ 
+ useLayoutEffect(() => {
+  getbuyers(profileListId);
+  getAllUsers();
+  console.log(users);
+  console.log(potentialCustomers);
 
-
-  // const change = () => {
-  //   prop.data.ans.map((item) => {
-  //     if (item.Productid == prodID) {
-  //       setudata([item.offeredBy]);
-  //     }
-  //   });
-  // }
-
-  // useEffect(() => {
-  //   getAllUsers();
-  // },[]);
+ },[])
 
   return (
-    <div>
-      {potentialCustomers.map((item) => {
-        <h1 style={ {fontSize: '350px'}}>{item.offeredBy}</h1>
-      }
-      )
+    <div className="d-flex justify-content-around mt-5" >
+      {
+        potentialCustomers.map((item) => {
+          return users.map((user) => {
+            if (item.offeredBy === user._id) {
+              return (
+                <div  style={{ width:'300px',marginRight:'10px',border:'1px solid #00000042',fontSize:'25px',textAlign:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
+                  <p1 style={{padding:'5px'}}> Customer name:{user.name}</p1>
+                  <button style={{width:'60%',alignSelf:'center',padding:'3px'}} id="signIn" >Chat with customer</button>
+
+                </div>
+              );
+            }
+          })
+            
+          
+        })
       }
 
     </div>

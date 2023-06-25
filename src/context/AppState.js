@@ -21,6 +21,7 @@ const AppState = (props) => {
   const [users, setusers] = useState(InitialUsers);
   const [data, setdata] = useState([]);
   const [potentialCustomers, setpotentialCustomers] = useState([]);
+  const[profileListId,setprofileListId]=useState([]);
 
 
   const [offerProps, setofferProps] = useState(InitialProps);
@@ -360,7 +361,9 @@ const AppState = (props) => {
         data,
         getData,
         setofferProps,
-        offerProps
+        offerProps,
+        profileListId,
+        setprofileListId
 
       }}
     >

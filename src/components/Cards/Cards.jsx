@@ -7,7 +7,7 @@ import appContext from "../../context/AppContext";
 import { useContext } from "react";
 const Cards = (props) => {
   const context = useContext(appContext);
-  const { getData, data , getbuyers, setpotentialCustomers, potentialCustomers } = context;
+  const { getData, data , getbuyers, setprofileListId } = context;
   const navigate = useNavigate();
 
 
@@ -23,15 +23,15 @@ const Cards = (props) => {
   // }
   
   const getcustomers = async () => {
-    let response = await getbuyers(props.id);
+    // let response = await getbuyers(props.id);
     
     // const json = await response.json();    
+
 
     // console.log(response);
     // await setpotentialCustomers(response);
     // console.log("err" + err);
-
-    console.log(potentialCustomers);
+    setprofileListId(props.id);
     navigate("/customer");
   }
 
@@ -46,9 +46,9 @@ const Cards = (props) => {
         <p id="c-price">₹{props.price}</p>
       </div>
       <div className="c-title">{props.title}</div>
-      {props.bool && <Link to={``} >
+      {props.bool && 
             <button onClick={getcustomers}>View potential customers</button>
-          </Link>}
+          }
       {!props.bool && (
         
           <Link to={`/details`} state={props.id}>
