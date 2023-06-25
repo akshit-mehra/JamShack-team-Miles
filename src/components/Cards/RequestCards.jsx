@@ -5,7 +5,7 @@ import appContext from "../../context/AppContext";
 
 const RequestCards = (props) => {
   const context = useContext(appContext);
-  const { setofferProps } = context;
+  const { setofferProps,acceptoffer,rejectoffer} = context;
 
   const warr = props.description.split(" ");
   const wshow = warr.splice(0, 7).join(" ");
@@ -18,6 +18,12 @@ const RequestCards = (props) => {
       navigate("/offerinput", { state: { request: props } });
     }
   };
+  const handleAccept = () => {
+    acceptoffer(props.id);
+  }
+  const handleReject = () => {
+    rejectoffer(props.id);
+  }
 
   return (
     <div className="req-body">
@@ -38,19 +44,20 @@ const RequestCards = (props) => {
         <div>
           <div className="d-flex justify-content-between mt-2">
           <div className="req-cat">
-            <p>{props.amount}</p>
+            <p> ₹{props.amount}</p>
           </div>
           <div className="req-des">
-            <p>{props.condition}</p>
+            <p><span style={{color:'black'}}>Condition:</span> {props.condition}</p>
           </div>
           </div>
           <div className="req-des">
             <p>{props.description}</p>
           </div>
           <div className="d-flex justify-content-between mt-2">
-            <button style={{width:'100px'}}>Accept Offer</button>
-            <button style={{width:'100px'}}>Reject Offer</button>
+            <button style={{width:'100px'}} onClick={handleAccept}>Accept Offer</button>
+            <button style={{width:'100px'}} onClick={handleReject}>Reject Offer</button>
             </div>
+            <button style={{marginTop:'8px',width:'100%'}}>Chat with Seller</button>
           
         </div>
       )}

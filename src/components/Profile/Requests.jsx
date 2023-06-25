@@ -1,12 +1,12 @@
-import React ,{useLayoutEffect,useState}from 'react'
-import { useLocation } from 'react-router-dom'
+import React, { useLayoutEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import RequestCards from "../Cards/RequestCards";
-import appContext from '../../context/AppContext';
-import { useContext } from 'react';
+import appContext from "../../context/AppContext";
+import { useContext } from "react";
 
 const Requests = () => {
-    const context=useContext(appContext);
-    const {deactive_nav}=context;
+  const context = useContext(appContext);
+  const { deactive_nav } = context;
   const userInfo = useLocation().state;
   const [arr, setArr] = useState([]);
   const data = async () => {
@@ -29,18 +29,20 @@ const Requests = () => {
     <div>
       <div className="pl-h d-flex justify-content-around">
         {arr.map((res) => {
-          return (
-            <div className="c-data">
-              <RequestCards
-                id={res._id}
-                key={res._id}
-                description={res.description}
-                category={res.category}
-                title={res.title}
-                bool={true}
-              />
-            </div>
-          );
+          if (res.valid === true) {
+            return (
+              <div className="c-data">
+                <RequestCards
+                  id={res._id}
+                  key={res._id}
+                  description={res.description}
+                  category={res.category}
+                  title={res.title}
+                  bool={true}
+                />
+              </div>
+            );
+          }
         })}
       </div>
     </div>

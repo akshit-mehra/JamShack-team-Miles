@@ -93,7 +93,7 @@ router.post(
       const photoUrl = await cloudinary.uploader.upload(f);
 
       console.log("photo uploaded");
-      const otherDetails=[req.body.Option1,req.body.Option3,req.body.Option3];
+      const otherDetails=[req.body.Option1,req.body.Option2,req.body.Option3];
      const bool=req.body.isRental[0]==='R' ?true : false; 
 
       const newProduct = new Products({
