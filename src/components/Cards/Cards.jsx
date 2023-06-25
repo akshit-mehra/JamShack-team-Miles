@@ -7,19 +7,35 @@ import appContext from "../../context/AppContext";
 import { useContext } from "react";
 const Cards = (props) => {
   const context = useContext(appContext);
-  const { getData, data } = context;
+  const { getData, data , getbuyers, setpotentialCustomers, potentialCustomers } = context;
   const navigate = useNavigate();
+
+
   // const details=()=>{
   //   navigate("/details")
 
   // }
-  const handleChange = async() => {
-    await getData();
-    setTimeout(() => {
-      console.log(data);
-    }, 3000);
-    // navigate("/customer",{state:{props,data}});
+  // const handleChange = async() => {
+  //   await getData();
+  //   setTimeout(() => {
+  //     console.log(data);
+  //   }, 3000);
+  // }
+  
+  const getcustomers = async () => {
+    let response = await getbuyers(props.id);
+    
+    // const json = await response.json();    
+
+    // console.log(response);
+    // await setpotentialCustomers(response);
+    // console.log("err" + err);
+
+    console.log(potentialCustomers);
+    navigate("/customer");
   }
+
+
   return (
     <div className="c-body">
       <div className="image">
@@ -31,7 +47,7 @@ const Cards = (props) => {
       </div>
       <div className="c-title">{props.title}</div>
       {props.bool && <Link to={``} >
-            <button onClick={handleChange}>View potential customers</button>
+            <button onClick={getcustomers}>View potential customers</button>
           </Link>}
       {!props.bool && (
         
