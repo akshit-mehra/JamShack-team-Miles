@@ -12,12 +12,15 @@ const AppState = (props) => {
   const InitialRent = [];
   const InitialOffers = [];
   const InitialUsers = [];
+  const InitialProps = [];
 
   const [requests, setrequests] = useState(InitialRequests);
   const [listing, setlisting] = useState(InitialListings);
   const [rent, setrent] = useState(InitialRent);
   const [offers, setoffers] = useState(InitialOffers);
   const [users, setusers] = useState(InitialUsers);
+
+  const [offerProps, setofferProps] = useState(InitialProps);
 
   // Category
   const [category, setcategory] = useState("");
@@ -346,6 +349,9 @@ const AppState = (props) => {
         getAllUsers,
         data,
         getData,
+        setofferProps,
+        offerProps
+
       }}
     >
       {props.children}

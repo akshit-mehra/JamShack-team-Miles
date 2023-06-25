@@ -5,13 +5,17 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Offerinput = () => {
-    const context=useContext(appContext);
-    const {makeoffer}=context;
-  const data = useLocation().state.request;
+    const context = useContext(appContext);
+  const {makeoffer, offerProps }=context;
+
+  // const data = useLocation().state.request;
+
   const handleChange = (e) => {
     setoffVal({ ...offVal, [e.target.name]: e.target.value });
     console.log(offVal);
   };
+
+
   const [offVal, setoffVal] = useState({
     offerTitle: "",
     offerDescription: "",
@@ -19,10 +23,12 @@ const Offerinput = () => {
     offerCondition: "Good",
     offerLocation:"",
   });
+
+
   const navigate = useNavigate();
   const submitAd = async(e) => {
     await makeoffer(
-        data._id,
+        offerProps._id,
         offVal.offerTitle,
         offVal.offerAmount,
         offVal.offerDescription,
@@ -44,7 +50,7 @@ const Offerinput = () => {
           marginLeft: "50px",
         }}
       >
-        {data.title}
+        {offerProps.title}
       </div>
       <div
         className="offer-description"
@@ -55,7 +61,7 @@ const Offerinput = () => {
           width: "70%",
         }}
       >
-        {data.description}
+        {offerProps.description}
       </div>
       <div
         style={{

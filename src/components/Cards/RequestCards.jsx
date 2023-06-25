@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./RequestCards.css";
 import { useNavigate } from "react-router-dom";
+import appContext from "../../context/AppContext";
+
+
+
+
 const RequestCards = (props) => {
+
+  const context = useContext(appContext);
+  const { setofferProps } = context;
+
   const warr = props.description.split(" ");
   const wshow = warr.splice(0, 7).join(" ");
   const navigate=useNavigate();
   const handleChange = () => {
+
+    setofferProps(props);
     navigate("/offerinput", { state: { request: props } });
+
   };
   return (
     <div className="req-body">
