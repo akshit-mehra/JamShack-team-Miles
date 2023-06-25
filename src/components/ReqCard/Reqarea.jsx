@@ -61,6 +61,7 @@ const Reqarea = () => {
             return (
               <div className="c-data">
             <RequestCards
+            id={res._id}
               key={res._id}
               description={res.description}
               category={res.category}

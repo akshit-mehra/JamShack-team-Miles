@@ -202,6 +202,7 @@ const AppState = (props) => {
     offerLocation
   ) => {
     // API call
+    console.log(productId);
     const response = await fetch(`${host}/api/request/makeoffer/${productId}`, {
       method: "POST",
       headers: {
