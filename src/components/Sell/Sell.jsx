@@ -7,7 +7,7 @@ import H_Post from '../h_post/H_Post'
 const Sell = () => {
   return (
     <div>
-        <Home_cat/>
+        {/* <Home_cat/> */}
         <PlaceCards/>
         <H_Post/>
     </div>
