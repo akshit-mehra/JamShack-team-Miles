@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useLayoutEffect } from "react";
 import "./RequestCards.css";
 import { useNavigate } from "react-router-dom";
 import appContext from "../../context/AppContext";
 
 const RequestCards = (props) => {
   const context = useContext(appContext);
-  const { setofferProps,acceptoffer,rejectoffer} = context;
+  const { setofferProps,acceptoffer,rejectoffer, setchatConvId, setchatProductId} = context;
 
   const warr = props.description.split(" ");
   const wshow = warr.splice(0, 7).join(" ");
@@ -23,6 +23,12 @@ const RequestCards = (props) => {
   }
   const handleReject = () => {
     rejectoffer(props.id);
+  }
+
+  const GoChat = () => {
+    setchatConvId(props.OfferedBy);
+    setchatProductId(props.id);
+    navigate("/chat");
   }
 
   return (
@@ -57,7 +63,7 @@ const RequestCards = (props) => {
             <button style={{width:'100px'}} onClick={handleAccept}>Accept Offer</button>
             <button style={{width:'100px'}} onClick={handleReject}>Reject Offer</button>
             </div>
-            <button style={{marginTop:'8px',width:'100%'}}>Chat with Seller</button>
+            <button style={{marginTop:'8px',width:'100%'}} onClick={GoChat} >Chat with Seller</button>
           
         </div>
       )}

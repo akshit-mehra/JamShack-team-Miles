@@ -24,6 +24,7 @@ const Offers = () => {
                 amount={res.offerAmount}
                 condition={res.offerCondition}
                 confirm={true}
+                OfferedBy={res.offeredBy}
               />
             </div>
           );
