@@ -26,6 +26,8 @@ const AppState = (props) => {
   const [chatProductId, setchatProductId] = useState("default");
   const [chatConvId, setchatConvId] = useState("default");
 
+  const [myOffers, setmyOffers] = useState([]);
+
 
   const [offerProps, setofferProps] = useState(InitialProps);
 
@@ -342,6 +344,22 @@ const AppState = (props) => {
     setMyId(data._id);
   };
 
+  const getMyOffers = async () => {
+    // API CALL
+    const res = await fetch("http://localhost:3001/api/request/getmyoffers", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      }
+    });
+
+    const data = await res.json();
+    setmyOffers(data);
+
+    console.log(data);
+  }
+
 
   return (
     <appContext.Provider
@@ -392,7 +410,10 @@ const AppState = (props) => {
         chatProductId,
         setchatProductId,
         chatConvId,
-        setchatConvId
+        setchatConvId,
+
+        getMyOffers,
+        myOffers
       }}
     >
       {props.children}

@@ -234,6 +234,18 @@ router.put("/rejectoffer/:id", fetchuser, async (req, res) => {
     }
 });
 
+// ROUTE - 8 :: get all offers of a user - GET - REQUIRES LOGIN
+router.get("/getmyoffers", fetchuser, async (req, res) => {
+    try {
+        const offers = await Offers.find({offeredBy: req.user.id});
+        return res.json(offers);
+    }
+    catch(err){
+        console.error(err.message);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 module.exports = router;
 
