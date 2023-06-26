@@ -15,23 +15,25 @@ import Sale_Details from './components/Sale_Details/Sale_Details';
 import Profile from './components/Profile/Profile';
 import Search from './pages/Search';
 import Footer from './components/Footer/Footer';
-import { useState } from 'react';
+
 import Listing from './components/Profile/Listing';
 import Customers from './components/Profile/Customers';
 import Offerinput from './components/OfferInput/Offerinput';
 import Requests from './components/Profile/Requests';
 import Offers from './components/Profile/Offers';
 import History from './components/Profile/History';
+import Myoffers from './components/My Offers/Myoffers';
+
+
 
 
 
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
 
-  const toggleOverlay = () => {
-    setIsOpen(!isOpen);
-  };
+
+
+
   return (
     <div className="Main">
        <Router>
@@ -55,7 +57,8 @@ function App() {
           <Route path='/requests' element={<Requests/>}></Route>
           <Route path="/offers" element={<Offers/>}/>
           <Route path="/history" element={<History/>}/>
-          <Route path="/chat" element={<ChatComp productId={"bike"} convId={"buyerId"} />}/>
+          <Route path="/myoffers" element={<Myoffers/>}/>
+          <Route path="/chat" element={<ChatComp />}/>
         </Routes>
           {/* <Footer /> */}
       </AppState>

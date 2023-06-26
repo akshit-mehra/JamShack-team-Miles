@@ -102,6 +102,11 @@ function Profile() {
                                 Listing History
                             </Link>
                         </div>
+                        <div className="details">
+                            <Link to="/myoffers" state={userdata}>
+                                My Offers
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>
