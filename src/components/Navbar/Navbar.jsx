@@ -18,39 +18,6 @@ const Navbar = () => {
 
   const navigate = useNavigate();
 
-  // const [check_1, setcheck_1] = useState(true);
-  // const [check_2, setcheck_2] = useState(false);
-  // const [check_3, setcheck_3] = useState(false);
-
-  // const active_nav_1=(e)=>{
-
-  //   if(check_1==false){
-  //     setcheck_1(true);
-  //     setcheck_2(false);
-  //     setcheck_3(false);
-  //   }
-  //   navigate("/")
-  // }
-  // const active_nav_2=(e)=>{
-
-  //   if(check_2==false){
-  //     setcheck_2(true);
-  //     setcheck_1(false);
-  //     setcheck_3(false);
-  //     navigate("/rent")
-  //   }
-
-  // }
-  // const active_nav_3=(e)=>{
-
-  //   if(check_3==false){
-  //     setcheck_3(true);
-  //     setcheck_2(false);
-  //     setcheck_1(false);
-  //   }
-  //   navigate("/request");
-
-  // }
   const POST = () => {
     navigate("/post");
   };
@@ -61,9 +28,9 @@ const Navbar = () => {
     localStorage.removeItem("token");
     navigate("/login");
   };
-  const home=()=>{
+  const home = () => {
     active_nav_1();
-  }
+  };
 
   return (
     <div className="navb">
@@ -77,16 +44,18 @@ const Navbar = () => {
               Sign In
             </button>
           ) : (
-            
             <div className="d-flex">
-              <Link to={'/profile'}><img src={userImg} alt="" style={{ margin: "0 10px" }} /></Link>
-              <button id="signIn" onClick={handleLogout}>Sign Out</button>
+              <Link to={"/profile"}>
+                <img src={userImg} alt="" style={{ margin: "0 10px" }} />
+              </Link>
+              <button id="signIn" onClick={handleLogout}>
+                Sign Out
+              </button>
+              <button id="nav-post" onClick={POST}>
+                Post an ad
+              </button>
             </div>
           )}
-
-          <button id="nav-post" onClick={POST}>
-            Post an ad
-          </button>
         </div>
       </div>
 
