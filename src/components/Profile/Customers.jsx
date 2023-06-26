@@ -40,6 +40,8 @@ const Customers = () => {
   };
   const handleDeal=()=>{
     marklisting(potentialCustomers[0].Productid);
+
+    navigate("/");
   }
 
   return (

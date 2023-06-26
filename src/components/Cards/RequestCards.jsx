@@ -20,6 +20,8 @@ const RequestCards = (props) => {
   };
   const handleAccept = () => {
     acceptoffer(props.id);
+
+    navigate("/request");
   }
   const handleReject = () => {
     rejectoffer(props.id);
