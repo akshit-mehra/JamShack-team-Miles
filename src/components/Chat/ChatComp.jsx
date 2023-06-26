@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useContext } from 'react';
 import './ChatComp.css'
 
 import firebase from 'firebase/app';
@@ -8,6 +8,8 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import appContext from "../../context/AppContext";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyBVsHQsx09KjgWIIN5ZIScquRHY484_EV0",
@@ -25,8 +27,11 @@ const firestore = firebase.firestore();
 const analytics = firebase.analytics();
 
 
-function ChatComp(props) {
+function ChatComp() {
 
+
+  const context=useContext(appContext);
+  const {chatProductId, chatConvId}=context;
   const [user] = useAuthState(auth);
 
   return (
@@ -37,7 +42,7 @@ function ChatComp(props) {
       </header>
 
       <section>
-        {user ? <ChatRoom productId={props.productId} convId={props.convId}/> : <SignIn />}
+        {user ? <ChatRoom productId={chatProductId} convId={chatConvId}/> : <SignIn />}
       </section>
 
     </div>

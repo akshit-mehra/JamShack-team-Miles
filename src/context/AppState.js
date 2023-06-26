@@ -22,6 +22,9 @@ const AppState = (props) => {
   const [data, setdata] = useState([]);
   const [potentialCustomers, setpotentialCustomers] = useState([]);
   const[profileListId,setprofileListId]=useState([]);
+  
+  const [chatProductId, setchatProductId] = useState("default");
+  const [chatConvId, setchatConvId] = useState("default");
 
 
   const [offerProps, setofferProps] = useState(InitialProps);
@@ -339,7 +342,7 @@ const AppState = (props) => {
     setMyId(data._id);
   };
 
-  
+
   return (
     <appContext.Provider
       value={{
@@ -384,7 +387,12 @@ const AppState = (props) => {
         setprofileListId,
 
         MyId,
-        getMyId
+        getMyId,
+
+        chatProductId,
+        setchatProductId,
+        chatConvId,
+        setchatConvId
       }}
     >
       {props.children}
