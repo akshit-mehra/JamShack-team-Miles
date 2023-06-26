@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Khoj
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Discover, Connect, and Thrive: Khoj - Empowering College Students to Share, Sell, and Seek.
 
-## Available Scripts
 
-In the project directory, you can run:
+## Authors
 
-### `npm start`
+- [@aadhar2003](https://github.com/aadhar2003)
+- [@akshit-mehra](https://github.com/akshit-mehra)
+- [@sanya031](https://github.com/sanya031)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Introduction
 
-### `npm run build`
+Khoj is a user-friendly website developed to provide a platform for college students to sell, request, rent, and donate products among their peers. It aims to facilitate seamless transactions and connections within the college community. With Khoj, students can easily post demands for specific items, regardless of their availability, and other students can view these requests and make offers. The website also allows users to chat with each other, ensuring smooth communication throughout the process. Khoj provides a clean and intuitive experience, with clear distinctions between products for sale, rent, and request, along with predefined categories and filtering options.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This README file serves as a guide to help you understand the features of Khoj, how to install and use it, as well as the license under which it is available.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Sell, Request, Rent**: Khoj allows students to post requests, sales, and rental listings for various items within their college community. Whether you're looking to sell your old textbooks, request a specific gadget, or rent out your electronics, Khoj provides a platform to connect with potential buyers, sellers, and renters.
 
-### `npm run eject`
+- **Donation**: Khoj enables users to donate items they no longer need. By donating, students can contribute to a sustainable and supportive college community, where others can benefit from their generosity.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Chat Functionality**: Khoj includes a built-in chat feature that allows users to communicate with each other. Whether you're discussing details of a potential transaction, negotiating prices, or simply seeking additional information, the chat feature ensures smooth and direct communication.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Categorized Listings**: To facilitate easy navigation, Khoj offers predefined categories for listings, such as electronics, books, furniture, and more. Users can choose the appropriate category when posting their listings, ensuring that products are organized and easily discoverable by other students.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Filters and Sorting**: Khoj provides a clean experience to users by offering filters and sorting options. Users can filter listings based on categories, price range, condition, or availability. Sorting options allow users to view listings based on relevance, price, or date posted, providing a tailored browsing experience.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Installation
 
-## Learn More
+To use Khoj, follow these steps:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository: `https://github.com/akshit-mehra/JamShack-team-Miles.git`
+2. Navigate to the project directory: 
+3. Install the required dependencies: `npm i -f`
+4. Configure the environment variables by creating a .env file
+5. Start the server: `npm run start`
+6. go to the backend directory `cd backend`
+7. start the nodejs server `nodemon`
+8. Access Khoj in your web browser at `http://localhost:3000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Usage
 
-### Code Splitting
+Once you have installed and launched Khoj, you can start exploring the website using its intuitive user interface. Here are some key actions you can take:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Sign Up**: Create a new account on Khoj using your college email address.
+- **Log In**: If you already have an account, log in to access your personalized dashboard.
+- **Sell, Request, Rent**: Post listings for items you want to sell, request, or rent within your college community.
+- **Donate**: Contribute to the community by donating items you no longer need.
+- **Chat**: Sign in with you google id and communicate with other users directly using the built-in chat feature.
+- **Categorized Listings**: Explore listings in predefined categories such as electronics, books, furniture, and more.
+- **Filters and Sorting**: Utilize filters and sorting options to customize your browsing experience and find relevant listings.
 
-### Analyzing the Bundle Size
+Feel free to explore the various features and functionalities of Khoj to make the most out of your college experience.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Khoj is licensed under the [MIT License](LICENSE). You are free to use, modify, and distribute this software.
