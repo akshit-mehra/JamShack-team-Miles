@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import appContext from "../../context/AppContext";
 import { useEffect, useContext } from "react";
 import "./SaleDetails.css";
@@ -8,7 +8,10 @@ const Sale_Details = () => {
   const data = useLocation().state;
   const context = useContext(appContext);
 
-  const { getAllList, getAllRent, listing, rent, check_1, check_2, startChat, MyId, getMyId } = context;
+  const navigate = useNavigate();
+
+
+  const { getAllList, getAllRent, listing, rent, check_1, check_2, startChat, MyId, getMyId, setchatConvId, setchatProductId } = context;
   const [reqData, setreqData] = useState([]);
   const retrieveData = () => {
     listing.map((item) => {
@@ -29,6 +32,14 @@ const Sale_Details = () => {
     console.log(ans);
     setsubcheck(true);
   };
+
+  const GoChat = () => {
+    // console.log("first");
+    setchatConvId(MyId);
+    setchatProductId(reqData._id);
+
+    navigate("/chat");
+  }
 
   useLayoutEffect(() => {
     getAllList();
@@ -146,6 +157,15 @@ const Sale_Details = () => {
                   <p style={{ color: "#EC5539" ,padding:'5px'}}>Request sent successfully</p>
                 </div>
               )}
+
+                <button
+                id="nav-post"
+                style={{ width: "190px", marginLeft:'10px' }}
+                onClick={GoChat}
+                disabled={reqData.availability === false || reqData.seller === MyId}
+              >
+                Start Chat
+              </button>
             </div>
           </div>
         </div>
