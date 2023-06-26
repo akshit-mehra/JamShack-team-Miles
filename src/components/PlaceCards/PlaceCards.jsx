@@ -65,28 +65,22 @@ const PlaceCards = () => {
       <div className="pl-h d-flex justify-content-around">
         {listing.map((res) => {
           {
-            if (
-              res.title.toUpperCase().indexOf(search.toUpperCase()) > -1 &&
-              (searchCat == "" ||
-                searchCat == "Categories" ||
-                res.category == searchCat)
-            ) {
-              if (res.availability == true) {
-                return (
-                  <div className="c-data">
-                    <Cards
-                      id={res._id}
-                      key={res._id}
-                      imageURL={res.imageURL}
-                      category={res.category}
-                      title={res.title}
-                      price={res.price}
-                    />
-                  </div>
-                );
-              }
+            if ((res.title.toUpperCase().indexOf(search.toUpperCase()) > -1) && (searchCat == "" || searchCat == "Categories" || res.category==searchCat)) {
+              return (
+                <div className="c-data">
+                  <Cards
+                    id={res._id}
+                    key={res._id}
+                    imageURL={res.imageURL}
+                    category={res.category}
+                    title={res.title}
+                    price={res.price}
+                  />
+                </div>
+              );
             }
           }
+
         })}
       </div>
     </div>
