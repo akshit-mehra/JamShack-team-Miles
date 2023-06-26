@@ -141,7 +141,7 @@ const Sale_Details = () => {
                 </ul>
               </div>
             )}
-            <div>
+            <div style={{display:'flex'}}>
               {!subcheck && (
                 <button
                 id="nav-post"

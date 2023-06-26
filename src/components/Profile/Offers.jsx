@@ -14,7 +14,7 @@ const Offers = () => {
   return (
     <div className="reqall">
       {offers.map((res) => {
-        if (res.offerStatus =="pending") {
+        if (res.offerStatus ==="Pending") {
           return (
             <div className="c-data">
               <RequestCards
