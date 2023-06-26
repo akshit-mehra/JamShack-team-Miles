@@ -59,7 +59,7 @@ const RentCard = () => {
       <div className="pl-h d-flex justify-content-equal">
         {rent.map((res) => {
           {
-            if ((res.title.toUpperCase().indexOf(search.toUpperCase()) > -1) && (searchCat == "" || searchCat == "Categories" || res.category==searchCat)) {
+            if ((res.title.toUpperCase().indexOf(search.toUpperCase()) > -1) && (searchCat == "" || searchCat == "Categories" || res.category==searchCat)  && (res.availability === true)) {
               return (
                 <div className="c-data">
                   <Cards
