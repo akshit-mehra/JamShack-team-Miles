@@ -22,15 +22,15 @@ const Customers = () => {
  },[])
 
   return (
-    <div className="d-flex justify-content-around mt-5" >
+    <div className="d-flex justify-content-around mt-5" style={{flexWrap:'wrap'}}>
       {
         potentialCustomers.map((item) => {
           return users.map((user) => {
             if (item.offeredBy === user._id) {
               return (
-                <div  style={{ width:'300px',marginRight:'10px',border:'1px solid #00000042',fontSize:'25px',textAlign:'center',display:'flex',flexDirection:'column',justifyContent:'center'}}>
-                  <p1 style={{padding:'5px'}}> Customer name:{user.name}</p1>
-                  <button style={{width:'60%',alignSelf:'center',padding:'3px'}} id="signIn" >Chat with customer</button>
+                <div  style={{ width:'300px',marginRight:'10px',border:'1px solid #00000042',fontSize:'25px',textAlign:'center',display:'flex',flexDirection:'column',justifyContent:'center',flexBasis:'30%',margin:'10px 0px'}}>
+                  <p1 style={{padding:'7px',whiteSpace:'nowrap'}}> Customer name:{user.name}</p1>
+                  <button style={{width:'60%',alignSelf:'center',padding:'3px',minHeight:'fit-content',minWidth:'fit-content'}} id="signIn" >Chat with customer</button>
 
                 </div>
               );
