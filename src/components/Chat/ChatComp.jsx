@@ -9,6 +9,8 @@ import 'firebase/analytics';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import appContext from "../../context/AppContext";
+import { useNavigate } from "react-router-dom";
+
 
 
 const firebaseConfig = {
@@ -39,6 +41,7 @@ function ChatComp() {
       <header>
         <h1 >Chat</h1>
         <SignOut />
+        <Back />
       </header>
 
       <section>
@@ -68,6 +71,19 @@ function SignIn() {
 function SignOut() {
   return auth.currentUser && (
     <button className="sign-out chatbutton" onClick={() => auth.signOut()}>Sign Out</button>
+  )
+}
+
+function Back() {
+
+  const navigate = useNavigate();
+
+
+  const backclick = ()=>{
+    navigate(-1);
+  }
+  return auth.currentUser && (
+    <button className="sign-out chatbutton" onClick={backclick}>Prvious</button>
   )
 }
 

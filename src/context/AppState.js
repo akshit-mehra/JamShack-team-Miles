@@ -360,6 +360,19 @@ const AppState = (props) => {
     console.log(data);
   }
 
+  const marklisting = async (id) => {
+    // API CALL
+    const response = await fetch(`${host}/api/listing/marklisting/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": localStorage.getItem("token"),
+      },
+    });
+
+    console.log(response);
+  }
+
 
   return (
     <appContext.Provider
@@ -413,7 +426,9 @@ const AppState = (props) => {
         setchatConvId,
 
         getMyOffers,
-        myOffers
+        myOffers,
+
+        marklisting
       }}
     >
       {props.children}
