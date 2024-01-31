@@ -17,6 +17,8 @@ router.post('/addinterest',fetchuser,async(req,res)=>{
 
 })
 
+
+
 router.get('/getinterest',async(req,res)=>{
   
        interest.find({},  async(err, listings) => {
